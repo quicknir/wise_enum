@@ -1,6 +1,3 @@
-// Shouldn't be necessary, needed this though on my machine
-#define BOOST_PP_VARIADICS 1
-
 #include "wise_enum.h"
 
 #include <iostream>
