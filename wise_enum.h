@@ -59,15 +59,28 @@
   WISE_ENUM_IMPL_TO_STRING(name, enum_names)                                   \
   WISE_ENUM_IMPL_DESC_PAIR_ARRAY(name, enum_names)
 
-#define WISE_ENUM_IMPL_SEQ(name, seq)                                          \
-  enum class name {                                                            \
-    BOOST_PP_SEQ_ENUM(                                                         \
-        BOOST_PP_SEQ_TRANSFORM(WISE_ENUM_IMPL_FIRST_OR_CONC, _, seq))          \
-  };                                                                           \
+#define WISE_ENUM_IMPL_SEQ(type, name, storage, seq)                           \
+  type name storage{BOOST_PP_SEQ_ENUM(                                         \
+      BOOST_PP_SEQ_TRANSFORM(WISE_ENUM_IMPL_FIRST_OR_CONC, _, seq))};          \
   WISE_ENUM_IMPL_NAME_SEQ(name, WISE_ENUM_IMPL_ENUM_NAMES(seq))
 
+#define WISE_ENUM_IMPL(type, name, storage, ...)                               \
+  WISE_ENUM_IMPL_SEQ(type, name, storage, BOOST_PP_VARIADIC_TO_SEQ(__VA_ARGS__))
+
+// Interface begins
 #define WISE_ENUM(name, ...)                                                   \
-  WISE_ENUM_IMPL_SEQ(name, BOOST_PP_VARIADIC_TO_SEQ(__VA_ARGS__))
+  WISE_ENUM_IMPL_SEQ(enum, name, , BOOST_PP_VARIADIC_TO_SEQ(__VA_ARGS__))
+
+#define WISE_ENUM_STORAGE(name, storage, ...)                                  \
+  WISE_ENUM_IMPL_SEQ(enum, name,                                               \
+                     : storage, BOOST_PP_VARIADIC_TO_SEQ(__VA_ARGS__))
+
+#define WISE_ENUM_CLASS(name, ...)                                             \
+  WISE_ENUM_IMPL_SEQ(enum class, name, , BOOST_PP_VARIADIC_TO_SEQ(__VA_ARGS__))
+
+#define WISE_ENUM_CLASS_STORAGE(name, storage, ...)                            \
+  WISE_ENUM_IMPL_SEQ(enum class, name,                                         \
+                     : storage, BOOST_PP_VARIADIC_TO_SEQ(__VA_ARGS__))
 
 namespace wise_enum {
 namespace detail {

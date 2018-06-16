@@ -3,11 +3,12 @@
 #include <iostream>
 
 namespace user {
-WISE_ENUM(foo, (bar, 3), baz);
+WISE_ENUM_CLASS_STORAGE(foo, std::size_t, (bar, 3), baz);
 }
 
 int main() {
   std::cerr << std::boolalpha;
+  static_assert(sizeof(user::foo) == sizeof(std::size_t), "");
 
   auto x = user::foo::bar;
   std::cerr << wise_enum::to_string(x) << " is: " << static_cast<int>(x)
