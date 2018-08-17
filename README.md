@@ -10,17 +10,22 @@ First, when you use one of the macros to declare your enum, what gets declared
 (among other things) is exactly the vanilla enum (or enum class) that you would
 expect. Not an enum like class, or anything like that. That means that
 `wise_enum`s can be used exactly like regular enums in non-reflective contexts,
-because they are regular enums. This also means that upgrading a regular enum
-already widely used (non-reflectively) in your codebase to a wise enum is never
-a breaking change. No strange behavior, or edge cases, when used with other
-third party libraries (e.g. serialization), or standard library type traits.
+because they are regular enums. They can be used as non-type template
+parameters, and they can be used in switch case statements, unlike any user
+defined type. This also means that upgrading a regular enum already widely used
+(non-reflectively) in your codebase to a wise enum is never a breaking change.
+No strange behavior, or edge cases, when used with other third party libraries
+(e.g. serialization), or standard library type traits.
 
 This first point is especially notable since [Better
 Enums](https://github.com/aantron/better-enums) seems like the best maintained,
 most polished, and most suggested smart enum solution I've seen. Last I checked,
 it uses enum like classes, which carry all the disadvantages mentioned above.
 This being a deal breaker for me was one of the major motivations for writing
-this library.
+this library. More generally, I recommend that if you are considering a smart
+enum library, if this point isn't discussed in the docs, simply try to define an
+enum and switch case on it, or define it as a non-type template parameter. If it
+doesn't work, I'd reconsider.
 
 Second, all the functionality in defining enums is preserved. You can define
 `enum` or `enum class`es, set storage explicitly or let it be implicit, define
