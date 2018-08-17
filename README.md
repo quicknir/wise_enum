@@ -8,6 +8,7 @@
  - Lets you iterate over all enum values
  
  - Does everything in an idiomatic C++ way (friendly to generic programming, compile time programming, etc)
+
 It has a few notable design choices.
 
 First, when you use one of the macros to declare your enum, what gets declared
