@@ -1,5 +1,8 @@
+#pragma once
+
 #include <array>
 #include <type_traits>
+#include <utility>
 
 namespace wise_enum {
 
@@ -12,17 +15,20 @@ constexpr void wise_enum_descriptor_pair_array(...);
 
 template <class T>
 static constexpr bool is_wise_enum =
-    std::is_same<void,
-                 decltype(wise_enum_descriptor_pair_array(Tag<T>{}))>::value;
+    !std::is_same<void,
+                  decltype(wise_enum_descriptor_pair_array(Tag<T>{}))>::value;
+
+template <class T, std::size_t N, std::size_t... Is>
+constexpr std::array<T, N>
+desc_array_to_array_impl(const std::array<std::pair<T, const char *>, N> &a,
+                         std::index_sequence<Is...>) {
+  return {a[Is].first...};
+}
 
 template <class T, std::size_t N>
 constexpr std::array<T, N>
 desc_array_to_array(const std::array<std::pair<T, const char *>, N> &a) {
-  std::array<T, N> r;
-  for (std::size_t i = 0; i != N; ++i) {
-    r[i] = a[i].first;
-  }
-  return r;
+  return desc_array_to_array_impl(a, std::make_index_sequence<N>{});
 }
 
 constexpr int strcmp(const char *s1, const char *s2) {
