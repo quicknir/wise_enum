@@ -32,7 +32,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x0)                                                        \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 1>{{                               \
       WISE_ENUM_IMPL_DESC_PAIR(x0)                                                      \
     }};                                                                                 \
   }                                                                                     \
@@ -73,7 +73,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x2)                                                        \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 3>{{                               \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2)                                                      \
@@ -98,7 +98,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x3)                                                        \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 4>{{                               \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -126,7 +126,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x4)                                                        \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 5>{{                               \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -157,7 +157,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x5)                                                        \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 6>{{                               \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -191,7 +191,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x6)                                                        \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 7>{{                               \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -229,7 +229,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x7)                                                        \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 8>{{                               \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -270,7 +270,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x8)                                                        \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 9>{{                               \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -314,7 +314,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x9)                                                        \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 10>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -361,7 +361,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x10)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 11>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -411,7 +411,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x11)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 12>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -464,7 +464,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x12)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 13>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -520,7 +520,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x13)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 14>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -579,7 +579,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x14)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 15>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -641,7 +641,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x15)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 16>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -706,7 +706,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x16)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 17>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -775,7 +775,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x17)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 18>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -847,7 +847,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x18)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 19>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -922,7 +922,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x19)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 20>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -1000,7 +1000,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x20)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 21>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -1081,7 +1081,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x21)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 22>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -1165,7 +1165,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x22)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 23>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -1252,7 +1252,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x23)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 24>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -1342,7 +1342,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x24)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 25>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -1435,7 +1435,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x25)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 26>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -1531,7 +1531,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x26)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 27>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -1631,7 +1631,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x27)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 28>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -1734,7 +1734,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x28)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 29>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -1840,7 +1840,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x29)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 30>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -1949,7 +1949,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x30)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 31>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -2061,7 +2061,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x31)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 32>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -2176,7 +2176,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x32)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 33>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -2294,7 +2294,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x33)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 34>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -2415,7 +2415,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x34)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 35>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -2539,7 +2539,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x35)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 36>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -2666,7 +2666,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x36)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 37>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -2797,7 +2797,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x37)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 38>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -2931,7 +2931,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x38)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 39>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -3068,7 +3068,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x39)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 40>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -3208,7 +3208,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x40)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 41>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -3351,7 +3351,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x41)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 42>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -3497,7 +3497,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x42)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 43>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -3646,7 +3646,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x43)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 44>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -3798,7 +3798,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x44)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 45>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -3953,7 +3953,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x45)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 46>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -4111,7 +4111,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x46)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 47>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -4273,7 +4273,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x47)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 48>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -4438,7 +4438,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x48)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 49>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -4606,7 +4606,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x49)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 50>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -4777,7 +4777,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x50)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 51>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -4951,7 +4951,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x51)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 52>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -5128,7 +5128,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x52)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 53>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -5308,7 +5308,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x53)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 54>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -5491,7 +5491,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x54)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 55>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -5677,7 +5677,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x55)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 56>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -5866,7 +5866,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x56)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 57>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -6059,7 +6059,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x57)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 58>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -6255,7 +6255,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x58)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 59>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -6454,7 +6454,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x59)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 60>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -6656,7 +6656,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x60)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 61>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -6861,7 +6861,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x61)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 62>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -7069,7 +7069,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x62)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 63>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -7280,7 +7280,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x63)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 64>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -7494,7 +7494,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x64)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 65>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -7711,7 +7711,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x65)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 66>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -7931,7 +7931,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x66)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 67>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -8155,7 +8155,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x67)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 68>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -8382,7 +8382,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x68)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 69>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -8612,7 +8612,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x69)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 70>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -8845,7 +8845,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x70)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 71>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -9081,7 +9081,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x71)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 72>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -9320,7 +9320,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x72)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 73>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -9562,7 +9562,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x73)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 74>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -9807,7 +9807,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x74)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 75>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -10055,7 +10055,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x75)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 76>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -10306,7 +10306,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x76)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 77>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -10561,7 +10561,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x77)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 78>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -10819,7 +10819,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x78)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 79>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -11080,7 +11080,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x79)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 80>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -11344,7 +11344,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x80)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 81>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -11611,7 +11611,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x81)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 82>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -11881,7 +11881,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x82)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 83>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -12154,7 +12154,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x83)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 84>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -12430,7 +12430,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x84)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 85>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -12709,7 +12709,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x85)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 86>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -12991,7 +12991,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x86)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 87>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -13277,7 +13277,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x87)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 88>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -13566,7 +13566,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x88)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 89>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -13858,7 +13858,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x89)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 90>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -14153,7 +14153,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x90)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 91>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -14451,7 +14451,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x91)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 92>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -14752,7 +14752,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x92)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 93>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -15056,7 +15056,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x93)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 94>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -15363,7 +15363,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x94)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 95>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -15673,7 +15673,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x95)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 96>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -15986,7 +15986,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x96)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 97>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -16303,7 +16303,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x97)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 98>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \
@@ -16623,7 +16623,7 @@
     WISE_ENUM_IMPL_ENUM_INIT(x98)                                                       \
   };                                                                                    \
   constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {      \
-    return std::array<std::pair<name, const char *>, 2>{{                               \
+    return std::array<std::pair<name, const char *>, 99>{{                              \
       WISE_ENUM_IMPL_DESC_PAIR(x0),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x1),                                                     \
       WISE_ENUM_IMPL_DESC_PAIR(x2),                                                     \

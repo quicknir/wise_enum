@@ -60,7 +60,7 @@ def main(num, filename):
                 "  constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {"
             )
             _print_macro_line(
-                f, "    return std::array<std::pair<name, const char *>, 2>{{")
+                f, "    return std::array<std::pair<name, const char *>, " + str(i) + ">{{")
 
             _print_comma_list(f, [
                 "WISE_ENUM_IMPL_DESC_PAIR(x{})".format(j) for j in range(i)
