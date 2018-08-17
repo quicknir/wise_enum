@@ -2,7 +2,7 @@
 
 > Because reflection makes you wise, not smart
 
-'wise_enum' is a standalone smart enum library for C++14 (or later).
+`wise_enum` is a standalone smart enum library for C++14 (or later).
 
 It has a few notable design choices.
 
