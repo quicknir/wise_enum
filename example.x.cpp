@@ -1,3 +1,8 @@
+#if __cplusplus == 201402L
+#include <experimental/optional>
+#define WISE_ENUM_OPTIONAL std::experimental::optional
+#endif
+
 #include "wise_enum.h"
 
 #include <cassert>
@@ -8,7 +13,7 @@ WISE_ENUM(foo, (bar, 2), baz)
 int main() {
 
   // Number of enumerations:
-  std::cerr << "Number of enumerations: " << wise_enum::size<foo> << "\n";
+  std::cerr << "Number of enumerators: " << wise_enum::size<foo> << "\n";
 
   // Iterate over the enums:
   std::cerr << "Enum values:";

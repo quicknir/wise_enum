@@ -9,10 +9,10 @@
 #include <utility>
 
 // optional type needed for interface
-#ifndef WISE_ENUM_IMPL_OPTIONAL
+#ifndef WISE_ENUM_OPTIONAL
 #if __cplusplus == 201703L
 #include <optional>
-#define WISE_ENUM_IMPL_OPTIONAL std::optional
+#define WISE_ENUM_OPTIONAL std::optional
 #endif
 #endif
 
@@ -52,7 +52,7 @@ template <class T>
 struct is_wise_enum : std::integral_constant<bool, is_wise_enum_v<T>> {};
 
 template <class T>
-constexpr std::optional<T> from_string(const char *arg) {
+constexpr WISE_ENUM_OPTIONAL<T> from_string(const char *arg) {
   auto it =
       std::find_if(descriptor_range<T>.begin(), descriptor_range<T>.end(),
                    [=](const auto &x) {
