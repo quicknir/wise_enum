@@ -1,4 +1,7 @@
+#!/usr/bin/env python
+
 from itertools import groupby
+import argparse
 
 
 def _print_macro_line(f, s, terminal=False, cols=90):
@@ -79,3 +82,14 @@ def main(num, filename):
             _print_macro_line(f, "    return nullptr;")
             _print_macro_line(f, "  }")
             f.write("\n")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description=
+        "Generate file needed for smart enums, up to some maximum number of enumerations"
+    )
+    parser.add_argument('num', type=int)
+    parser.add_argument('output_filename')
+    args = parser.parse_args()
+    main(args.num, args.output_filename)
