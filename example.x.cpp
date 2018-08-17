@@ -39,8 +39,12 @@ int main() {
   assert(x1.value() == foo::bar);
   assert(!x2);
 
-  std::cerr << wise_enum::detail::is_wise_enum<foo>;
-  std::cerr << wise_enum::detail::is_wise_enum<int>;
+  // Everything is constexpr, and a type trait is made available for easy use in
+  // enable_if/tag dispatch
+  static_assert(wise_enum::is_wise_enum_v<foo>, "");
+  static_assert(!wise_enum::is_wise_enum_v<int>, "");
+  enum flub { blub, glub};
+  static_assert(!wise_enum::is_wise_enum_v<flub>, "");
 
   return 0;
 }
