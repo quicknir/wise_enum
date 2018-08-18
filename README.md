@@ -133,13 +133,13 @@ There are some known limitations:
 
 ### Q&A
 
-###### Why didn't I use `BOOST_PP`?
+##### Why didn't I use `BOOST_PP`?
 I started with it, but the limit on sequences was very disappointing (64) and
-there dind't seem to be any easy way to change it. So then I started down the
+there didn't seem to be any easy way to change it. So then I started down the
 codegen route, and once there, I wasn't using very much. I know there are always
 people who prefer to avoid the dependency, so I decided to drop it.
 
-###### What about C++11?
+##### What about C++11?
 I'm not likely to add support myself, but I welcome pull requests. This code
 will require quite a bit of attention to detail though, around the matter of
 `constexpr`.
