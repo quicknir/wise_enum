@@ -2,12 +2,61 @@
 
 > Because reflection makes you wise, not smart
 
-`wise_enum` is a standalone smart enum library for C++14 (or later). It supports all of the standard functionality that you would expect from a smart enum class in C++:
+`wise_enum` is a standalone smart enum library for C++14 (or later). It supports
+all of the standard functionality that you would expect from a smart enum class
+in C++:
  - Tells you the number of enumerators
- - Converts string to enum, and enum to string
  - Lets you iterate over all enum values
- 
- - Does everything in an idiomatic C++ way (friendly to generic programming, compile time programming, etc)
+ - Converts string to enum, and enum to string
+ - Does everything in an idiomatic C++ way (friendly to generic programming,
+   compile time programming, etc)
+
+### Examples
+
+Let's look at a bit of code. You can declare an enum like this:
+
+```
+// Equivalent to enum Color {GREEN = 2, RED};
+WISE_ENUM(Color, (GREEN, 2), RED)
+```
+
+You can also declare an enum class instead of an enum, and specify the storage
+explicitly using the other 3 macros in the family. You can ask the enum how many
+enumerators it has:
+
+```
+static_assert(wise_enum::size<Color> == 2, "");
+```
+
+Iterate over the just enumerators, or over pairs of enumerator + `const char*`:
+
+```
+// Iterate over the enums:
+for (auto e : wise_enum::range<Color>) {
+  foo(e);
+}
+
+// Iterate with descriptors
+std::cerr << "Enum values and descriptors:\n";
+for (auto e : wise_enum::descriptor_range<Color>) {
+  std::cerr << static_cast<int>(e.first) << " " << e.second << "\n";
+}
+```
+
+Convert between strings and enums:
+```
+// Convert any enum to a string
+std::cerr << wise_enum::to_string(Color::RED) << "\n";
+
+// Convert any string to an optional<enum>
+auto x1 = wise_enum::from_string<Color>("GREEN");
+auto x2 = wise_enum::from_string<Color>("Greeeeeeen");
+
+assert(x1.value() == Color::GREEN);
+assert(!x2);
+```
+
+### Design
 
 It has a few notable design choices.
 
@@ -53,14 +102,27 @@ initialization).
 More documentation on the API is coming soon; for now consult the example code.
 The API is quite small and simple.
 
+### Requirements
+
+wise_enum does require an `optional` like type. If compiled with 17 it will
+automatically use `std::optional` but if you are compiling with 14, you'll need
+to supply it an optional-like type by defining a macro. I may package an
+optional implementation, or provide a non-optional API (it's used for the string
+-> enum conversion), in the near future (depending as well on feedback).
+
+### Limitations
+
 There are some known limitations:
+
  - It can't be used inside a class, unfortunately. This probably cannot ever
  change. Suggested workaround is to declare it in a detail namespace, and then
  use an alias inside your class
  - By default, you are limited to 99 enumerations. If you need more, simply run
    the `create_generated` script to create a file with as many as you need, and
    replace `wise_enum_generated` with that file. The default limit may be raised
-   or lowered based on feedback.
+   or lowered based on feedback. An alternative solution here would be to create
+   headers in advance that raise this number, but leave the onus on the user to
+   include them (so users who don't need a large number aren't slowed down)
  - Because macros are macros, if/when feeding the value for an enumeration, it
    cannot have unparenthesized commas. This is actually relatively rare, but for
    example `f<3,4>()` is an example of something that could be a legal C++
@@ -68,18 +130,16 @@ There are some known limitations:
    assign that to a variable, and use the variable, as a workaround. This will
    be investigated for improvement (pull requests welcome)
 
- Why didn't I use `BOOST_PP`? I started with it, but the limit on sequences was
- very disappointing (64) and there dind't seem to be any easy way to change it.
- So then I started down the codegen route, and once there, I wasn't using very
- much. I know there are always people who prefer to avoid the dependency, so I
- decided to drop it.
 
- What about C++11? I'm not likely to add support myself, but I welcome pull
- requests. This code will require quite a bit of attention to detail though,
- around the matter of `constexpr`.
+### Q&A
 
-The library does require an `optional` like type. If compiled with 17 it will
-automatically use `std::optional` but if you are compiling with 14, you'll need
-to supply it an optional-like type by defining a macro. I may package an
-optional implementation, or provide a non-optional API (it's used for the string
--> enum conversion), in the near future (depending as well on feedback)
+###### Why didn't I use `BOOST_PP`?
+I started with it, but the limit on sequences was very disappointing (64) and
+there dind't seem to be any easy way to change it. So then I started down the
+codegen route, and once there, I wasn't using very much. I know there are always
+people who prefer to avoid the dependency, so I decided to drop it.
+
+###### What about C++11?
+I'm not likely to add support myself, but I welcome pull requests. This code
+will require quite a bit of attention to detail though, around the matter of
+`constexpr`.
