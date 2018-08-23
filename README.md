@@ -117,6 +117,10 @@ There are some known limitations:
  - It can't be used inside a class, unfortunately. This probably cannot ever
  change. Suggested workaround is to declare it in a detail namespace, and then
  use an alias inside your class
+ - Enumerators cannot have duplicated values. This breaks to string conversions,
+   specifically. If there's demand, a special macro may be provided that allows
+   declaring enums with non-unique values, and simply doesn't provide a to string
+   function
  - By default, you are limited to 99 enumerations. If you need more, simply run
    the `create_generated` script to create a file with as many as you need, and
    replace `wise_enum_generated` with that file. The default limit may be raised
