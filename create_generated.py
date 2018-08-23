@@ -29,59 +29,42 @@ def _print_macro_func(f, func_name, args):
     _print_macro_line(f, "  )")
 
 
+def _print_arg_counter(f, max_enums):
+    _print_macro_func(f, "WISE_ENUM_IMPL_ARG_N",
+                      ["_{}".format(i)
+                       for i in range(1, max_enums + 1)] + ["N", "..."])
+    _print_macro_line(f, "  N")
+    f.write('\n')
+
+    _print_macro_line(f, "#define WISE_ENUM_IMPL_RSEQ_N()")
+    _print_comma_list(f,
+                      reversed(["{}".format(i)
+                                for i in range(max_enums + 1)]), 2)
+    f.write('\n')
+
+
+def _print_loop(f, max_enums):
+    prefix = "WISE_ENUM_IMPL_LOOP_"
+    _print_macro_line(
+        f, "#define {}1(M, D, x) M(x)".format(prefix), terminal=True)
+    f.write('\n')
+
+    for i in range(2, max_enums + 1):
+        _print_macro_line(f, "#define {}{}(M, D, x, ...) M(x) D()".format(
+            prefix, i))
+        _print_macro_line(
+            f,
+            "  {}{}(M, D, __VA_ARGS__)".format(prefix, i - 1),
+            terminal=True)
+        f.write('\n')
+
+
 def main(num, filename):
 
     with open(filename, 'w') as f:
 
-        _print_macro_func(f, "WISE_ENUM_IMPL_ARG_N",
-                          ["_{}".format(i)
-                           for i in range(1, num)] + ["N", "..."])
-        _print_macro_line(f, "  N")
-        f.write('\n')
-
-        _print_macro_line(f, "#define WISE_ENUM_IMPL_RSEQ_N()")
-        _print_comma_list(f, reversed(["{}".format(i) for i in range(num)]), 2)
-        f.write('\n')
-
-        for i in range(1, num):
-            _print_macro_func(f, "WISE_ENUM_IMPL_{}".format(i),
-                              ["type", "name", "storage"
-                               ] + ["x{}".format(j) for j in range(i)])
-
-            _print_macro_line(f, "  type name storage {")
-            _print_comma_list(f, [
-                "WISE_ENUM_IMPL_ENUM_INIT(x{})".format(j) for j in range(i)
-            ], 4, 1)
-
-            _print_macro_line(f, "  };")
-
-            _print_macro_line(
-                f,
-                "  constexpr auto wise_enum_descriptor_pair_array(::wise_enum::detail::Tag<name>) {"
-            )
-            _print_macro_line(
-                f, "    return std::array<std::pair<name, const char *>, " + str(i) + ">{{")
-
-            _print_comma_list(f, [
-                "WISE_ENUM_IMPL_DESC_PAIR(x{})".format(j) for j in range(i)
-            ], 6, 1)
-
-            _print_macro_line(f, "    }};")
-            _print_macro_line(f, "  }")
-
-            _print_macro_line(
-                f, "  constexpr const char *wise_enum_to_string(name e) {")
-            _print_macro_line(f, "    switch (e) {")
-            for j in range(i):
-                _print_macro_line(
-                    f,
-                    "      case name::WISE_ENUM_IMPL_ENUM(x{}): return WISE_ENUM_IMPL_ENUM_STR(x{});".
-                    format(j, j))
-
-            _print_macro_line(f, "    }")
-            _print_macro_line(f, "    return nullptr;")
-            _print_macro_line(f, "  }")
-            f.write("\n")
+        _print_arg_counter(f, num)
+        _print_loop(f, num)
 
 
 if __name__ == "__main__":

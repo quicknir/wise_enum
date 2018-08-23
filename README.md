@@ -118,19 +118,12 @@ There are some known limitations:
    specifically. If there's demand, a special macro may be provided that allows
    declaring enums with non-unique values, and simply doesn't provide a to string
    function
- - By default, you are limited to 99 enumerations. If you need more, simply run
+ - By default, you are limited to 256 enumerations. If you need more, simply run
    the `create_generated` script to create a file with as many as you need, and
    replace `wise_enum_generated` with that file. The default limit may be raised
    or lowered based on feedback. An alternative solution here would be to create
    headers in advance that raise this number, but leave the onus on the user to
    include them (so users who don't need a large number aren't slowed down)
- - Because macros are macros, if/when feeding the value for an enumeration, it
-   cannot have unparenthesized commas. This is actually relatively rare, but for
-   example `f<3,4>()` is an example of something that could be a legal C++
-   expression and contains an unparenthesized comma. For now you could simply
-   assign that to a variable, and use the variable, as a workaround. This will
-   be investigated for improvement (pull requests welcome)
-
 
 ### Q&A
 
