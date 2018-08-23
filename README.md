@@ -99,9 +99,6 @@ currently a linear search; this may be changed in the future (most alternatives
 are not trivial to implement without doing heap allocations or dynamic
 initialization).
 
-More documentation on the API is coming soon; for now consult the example code.
-The API is quite small and simple.
-
 ### Requirements
 
 wise_enum does require an `optional` like type. If compiled with 17 it will
