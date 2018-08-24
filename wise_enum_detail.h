@@ -9,14 +9,19 @@ namespace wise_enum {
 namespace detail {
 
 template <class T>
+struct value_and_name {
+  T value;
+  const char *name;
+};
+
+template <class T>
 struct Tag {};
 
-constexpr void wise_enum_descriptor_pair_array(...);
+constexpr void wise_enum_detail_array(...);
 
 template <class T>
 static constexpr bool is_wise_enum =
-    !std::is_same<void,
-                  decltype(wise_enum_descriptor_pair_array(Tag<T>{}))>::value;
+    !std::is_same<void, decltype(wise_enum_detail_array(Tag<T>{}))>::value;
 
 template <class T, std::size_t N, std::size_t... Is>
 constexpr std::array<T, N>
@@ -91,7 +96,7 @@ constexpr int strcmp(const char *s1, const char *s2) {
 #define WISE_ENUM_IMPL_ENUM_STR(x) WISE_ENUM_IMPL_STR(WISE_ENUM_IMPL_ENUM(x))
 
 #define WISE_ENUM_IMPL_DESC_PAIR(x)                                            \
-  std::make_pair(WISE_ENUM_IMPL_ENUM(x), WISE_ENUM_IMPL_ENUM_STR(x))
+  { WISE_ENUM_IMPL_ENUM(x), WISE_ENUM_IMPL_ENUM_STR(x) }
 
 #define WISE_ENUM_IMPL_SWITCH_CASE(x)                                          \
   case WISE_ENUM_IMPL_ENUM(x):                                                 \
@@ -110,9 +115,8 @@ constexpr int strcmp(const char *s1, const char *s2) {
   type name storage{                                                           \
       loop(WISE_ENUM_IMPL_ENUM_INIT, WISE_ENUM_IMPL_COMMA, __VA_ARGS__)};      \
                                                                                \
-  constexpr auto wise_enum_descriptor_pair_array(                              \
-      ::wise_enum::detail::Tag<name>) {                                        \
-    return std::array<std::pair<name, const char *>, num_enums>{               \
+  constexpr auto wise_enum_detail_array(::wise_enum::detail::Tag<name>) {      \
+    return std::array<::wise_enum::detail::value_and_name<name>, num_enums>{   \
         {loop(WISE_ENUM_IMPL_DESC_PAIR, WISE_ENUM_IMPL_COMMA, __VA_ARGS__)}};  \
   }                                                                            \
                                                                                \

@@ -28,22 +28,17 @@ enumerators it has:
 static_assert(wise_enum::size<Color> == 2, "");
 ```
 
-Iterate over the just enumerators, or over pairs of enumerator + `const char*`:
+Iterate over the enumerators:
 
 ```
-// Iterate over the enums:
+std::cerr << "Enum values and names:\n";
 for (auto e : wise_enum::range<Color>) {
-  foo(e);
-}
-
-// Iterate with descriptors
-std::cerr << "Enum values and descriptors:\n";
-for (auto e : wise_enum::descriptor_range<Color>) {
-  std::cerr << static_cast<int>(e.first) << " " << e.second << "\n";
+  std::cerr << static_cast<int>(e.value) << " " << e.name << "\n";
 }
 ```
 
 Convert between strings and enums:
+
 ```
 // Convert any enum to a string
 std::cerr << wise_enum::to_string(Color::RED) << "\n";
@@ -54,6 +49,14 @@ auto x2 = wise_enum::from_string<Color>("Greeeeeeen");
 
 assert(x1.value() == Color::GREEN);
 assert(!x2);
+```
+
+Check whether something is a wise enum at compile time:
+```
+static_assert(wise_enum::is_wise_enum_v<Color>, "");
+static_assert(!wise_enum::is_wise_enum_v<int>, "");
+enum flub { blub, glub };
+static_assert(!wise_enum::is_wise_enum_v<flub>, "");
 ```
 
 ### Design

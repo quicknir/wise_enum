@@ -17,17 +17,10 @@ int main() {
   static_assert(wise_enum::size<Color> == 2, "");
   std::cerr << "Number of enumerators: " << wise_enum::size<Color> << "\n";
 
-  // Iterate over the enums:
-  std::cerr << "Enum values:";
+  // Iterate over enums
+  std::cerr << "Enum values and names:\n";
   for (auto e : wise_enum::range<Color>) {
-    std::cerr << " " << static_cast<int>(e);
-  }
-  std::cerr << "\n";
-
-  // Iterate with descriptors
-  std::cerr << "Enum values and descriptors:\n";
-  for (auto e : wise_enum::descriptor_range<Color>) {
-    std::cerr << static_cast<int>(e.first) << " " << e.second << "\n";
+    std::cerr << static_cast<int>(e.value) << " " << e.name << "\n";
   }
   std::cerr << "\n";
 

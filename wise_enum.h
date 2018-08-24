@@ -59,20 +59,14 @@ constexpr const char *to_string(T t) {
 }
 
 // For a given wise enum type, this variable allows iteration over enumerators
-// and their string literal descriptors in the declared order. Each iterated
-// object has type std::pair<T, const char*>
+// and their string literal names in the declared order. Each iterated object
+// has type std::pair<T, const char*>
 template <class T>
-constexpr auto
-    descriptor_range = wise_enum_descriptor_pair_array(detail::Tag<T>{});
+constexpr auto range = wise_enum_detail_array(detail::Tag<T>{});
 
 // This variable is equal to the number of enumerators for the wise enum type.
 template <class T>
-constexpr std::size_t size = descriptor_range<T>.size();
-
-// For a given wise enum type, this variable allows iteration over enumerators
-// in the declared order.
-template <class T>
-constexpr auto range = detail::desc_array_to_array(descriptor_range<T>);
+constexpr std::size_t size = range<T>.size();
 
 // A type trait; this allows checking if a type is a wise_enum in generic code
 template <class T>
@@ -82,18 +76,15 @@ template <class T>
 struct is_wise_enum : std::integral_constant<bool, is_wise_enum_v<T>> {};
 
 // Converts a string literal into a wise enum. Returns an optional<T>; if no
-// enumerator has descriptor matching the string, the optional is returned
-// empty.
+// enumerator has name matching the string, the optional is returned empty.
 template <class T>
 constexpr WISE_ENUM_OPTIONAL<T> from_string(const char *arg) {
-  auto it =
-      std::find_if(descriptor_range<T>.begin(), descriptor_range<T>.end(),
-                   [=](const auto &x) {
-                     return ::wise_enum::detail::strcmp(x.second, arg) == 0;
-                   });
-  if (it == descriptor_range<T>.end())
+  auto it = std::find_if(range<T>.begin(), range<T>.end(), [=](const auto &x) {
+    return ::wise_enum::detail::strcmp(x.name, arg) == 0;
+  });
+  if (it == range<T>.end())
     return {};
 
-  return it->first;
+  return it->value;
 }
 }
