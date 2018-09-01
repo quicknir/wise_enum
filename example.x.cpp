@@ -11,6 +11,9 @@
 // Equivalent to enum Color {GREEN = 2, RED};
 WISE_ENUM(Color, (GREEN, 2), RED)
 
+// Equivalent to enum class MoreColor {BLUE, BLACK = 1};
+WISE_ENUM_CLASS(MoreColor, BLUE, (BLACK, 1))
+
 int main() {
 
   // Number of enumerations:
