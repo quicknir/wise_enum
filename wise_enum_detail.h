@@ -84,7 +84,7 @@ constexpr int strcmp(const char *s1, const char *s2) {
 // Use building blocks to conditionally process enumerators; they can either be
 // just an identifier, or (identifier, value)
 #define WISE_ENUM_IMPL_ENUM_INIT_2(x, ...) x = __VA_ARGS__
-#define WISE_ENUM_IMPL_ENUM_INIT(x)                                            \
+#define WISE_ENUM_IMPL_ENUM_INIT(name, x)                                      \
   WISE_ENUM_IMPL_IIF(WISE_ENUM_IMPL_IS_PAREN(x))                               \
   (WISE_ENUM_IMPL_ENUM_INIT_2 x, x)
 
@@ -95,11 +95,11 @@ constexpr int strcmp(const char *s1, const char *s2) {
 
 #define WISE_ENUM_IMPL_ENUM_STR(x) WISE_ENUM_IMPL_STR(WISE_ENUM_IMPL_ENUM(x))
 
-#define WISE_ENUM_IMPL_DESC_PAIR(x)                                            \
-  { WISE_ENUM_IMPL_ENUM(x), WISE_ENUM_IMPL_ENUM_STR(x) }
+#define WISE_ENUM_IMPL_DESC_PAIR(name, x)                                      \
+  { name::WISE_ENUM_IMPL_ENUM(x), WISE_ENUM_IMPL_ENUM_STR(x) }
 
-#define WISE_ENUM_IMPL_SWITCH_CASE(x)                                          \
-  case WISE_ENUM_IMPL_ENUM(x):                                                 \
+#define WISE_ENUM_IMPL_SWITCH_CASE(name, x)                                    \
+  case name::WISE_ENUM_IMPL_ENUM(x):                                           \
     return WISE_ENUM_IMPL_ENUM_STR(x);
 
 #define WISE_ENUM_IMPL(type, name, storage, ...)                               \
@@ -113,16 +113,18 @@ constexpr int strcmp(const char *s1, const char *s2) {
 
 #define WISE_ENUM_IMPL_3(type, name, storage, num_enums, loop, ...)            \
   type name storage{                                                           \
-      loop(WISE_ENUM_IMPL_ENUM_INIT, WISE_ENUM_IMPL_COMMA, __VA_ARGS__)};      \
+      loop(WISE_ENUM_IMPL_ENUM_INIT, _, WISE_ENUM_IMPL_COMMA, __VA_ARGS__)};   \
                                                                                \
   constexpr auto wise_enum_detail_array(::wise_enum::detail::Tag<name>) {      \
     return std::array<::wise_enum::detail::value_and_name<name>, num_enums>{   \
-        {loop(WISE_ENUM_IMPL_DESC_PAIR, WISE_ENUM_IMPL_COMMA, __VA_ARGS__)}};  \
+        {loop(WISE_ENUM_IMPL_DESC_PAIR, name, WISE_ENUM_IMPL_COMMA,            \
+              __VA_ARGS__)}};                                                  \
   }                                                                            \
                                                                                \
   constexpr const char *wise_enum_to_string(name e) {                          \
     switch (e) {                                                               \
-      loop(WISE_ENUM_IMPL_SWITCH_CASE, WISE_ENUM_IMPL_NOTHING, __VA_ARGS__)    \
+      loop(WISE_ENUM_IMPL_SWITCH_CASE, name, WISE_ENUM_IMPL_NOTHING,           \
+           __VA_ARGS__)                                                        \
     }                                                                          \
     return nullptr;                                                            \
   }

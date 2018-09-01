@@ -46,15 +46,16 @@ def _print_arg_counter(f, max_enums):
 def _print_loop(f, max_enums):
     prefix = "WISE_ENUM_IMPL_LOOP_"
     _print_macro_line(
-        f, "#define {}1(M, D, x) M(x)".format(prefix), terminal=True)
+        f, "#define {}1(M, C, D, x) M(C, x)".format(prefix), terminal=True)
     f.write('\n')
 
     for i in range(2, max_enums + 1):
-        _print_macro_line(f, "#define {}{}(M, D, x, ...) M(x) D()".format(
-            prefix, i))
+        _print_macro_line(f,
+                          "#define {}{}(M, C, D, x, ...) M(C, x) D()".format(
+                              prefix, i))
         _print_macro_line(
             f,
-            "  {}{}(M, D, __VA_ARGS__)".format(prefix, i - 1),
+            "  {}{}(M, C, D, __VA_ARGS__)".format(prefix, i - 1),
             terminal=True)
         f.write('\n')
 
