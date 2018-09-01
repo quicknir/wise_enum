@@ -121,7 +121,9 @@ constexpr int strcmp(const char *s1, const char *s2) {
               __VA_ARGS__)}};                                                  \
   }                                                                            \
                                                                                \
-  constexpr const char *wise_enum_to_string(name e) {                          \
+  template <class T>                                                           \
+  constexpr const char *wise_enum_detail_to_string(                            \
+      T e, ::wise_enum::detail::Tag<name>) {                                   \
     switch (e) {                                                               \
       loop(WISE_ENUM_IMPL_SWITCH_CASE, name, WISE_ENUM_IMPL_NOTHING,           \
            __VA_ARGS__)                                                        \

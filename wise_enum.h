@@ -55,7 +55,7 @@ namespace wise_enum {
 // Returns the string representation of an enumerator
 template <class T>
 constexpr const char *to_string(T t) {
-  return wise_enum_to_string(t);
+  return wise_enum_detail_to_string(t, detail::Tag<T>{});
 }
 
 // For a given wise enum type, this variable allows iteration over enumerators
