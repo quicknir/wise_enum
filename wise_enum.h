@@ -29,9 +29,7 @@
 
  Usage notes:
    1) Must be used at namespace scope, not nested inside a class.
-   2) the initializer cannot contain an unparenthesized comma, nor redundant
-      surrounding parentheses
-   3) A semi-colon after the macro invocation is not necessary, and your
+   2) A semi-colon after the macro invocation is not necessary, and your
       compiler may warn for it
 */
 
