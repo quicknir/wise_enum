@@ -20,9 +20,20 @@ Let's look at a bit of code. You can declare an enum like this:
 WISE_ENUM(Color, (GREEN, 2), RED)
 ```
 
-You can also declare an enum class instead of an enum, and specify the storage
-explicitly using the other 3 macros in the family. You can ask the enum how many
-enumerators it has:
+You can also declare an enum class instead of an enum, specify the storage
+explicitly, or declare an enum nested inside a class:
+
+```
+// Equivalent to enum class MoreColor : int64_t {BLUE, BLACK = 1};
+WISE_ENUM_CLASS((MoreColor, int64_t), BLUE, (BLACK, 1))
+
+// Inside a class, must use a different macro, but still works
+struct Bar {
+    WISE_ENUM_MEMBER(Foo, BUZ)
+};
+```
+
+You can ask the enum how many enumerators it has:
 
 ```
 static_assert(wise_enum::size<Color> == 2, "");
@@ -86,7 +97,9 @@ doesn't work, I'd reconsider.
 
 Second, all the functionality in defining enums is preserved. You can define
 `enum` or `enum class`es, set storage explicitly or let it be implicit, define
-the value for an enumeration, or allow it to be determined implicitly.
+the value for an enumeration, or allow it to be determined implicitly. You can
+also define enums nested in classes, which isn't supported in some smart enum
+libraries.
 
 Third, it's quite compile-time programming friendly. Everything is `constexpr`,
 and a type trait is provided. This makes it easy to handle wise enums in a
@@ -114,9 +127,6 @@ optional implementation, or provide a non-optional API (it's used for the string
 
 There are some known limitations:
 
- - It can't be used inside a class, unfortunately. This probably cannot ever
-   change. Suggested workaround is to declare it in a detail namespace, and then
-   use an alias inside your class
  - If there are enumerators with the same value, then `to_string` will not work.
    You can declare the enum and use all the other API. This is both because it
    doesn't jive at all with the implementation, and even conceptually it's not

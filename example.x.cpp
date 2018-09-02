@@ -11,7 +11,7 @@
 // Equivalent to enum Color {GREEN = 2, RED};
 WISE_ENUM(Color, (GREEN, 2), RED)
 
-// Equivalent to enum class MoreColor : char {BLUE, BLACK = 1};
+// Equivalent to enum class MoreColor : int64_t {BLUE, BLACK = 1};
 WISE_ENUM_CLASS((MoreColor, int64_t), BLUE, (BLACK, 1))
 
 // Inside a class, must use a different macro, but still works
