@@ -21,7 +21,8 @@ WISE_ENUM(Color, (GREEN, 2), RED)
 ```
 
 You can also declare an enum class instead of an enum, specify the storage
-explicitly, or declare an enum nested inside a class:
+explicitly, declare an enum nested inside a class, or even adapt an already
+declared enum:
 
 ```
 // Equivalent to enum class MoreColor : int64_t {BLUE, BLACK = 1};
@@ -31,6 +32,12 @@ WISE_ENUM_CLASS((MoreColor, int64_t), BLUE, (BLACK, 1))
 struct Bar {
     WISE_ENUM_MEMBER(Foo, BUZ)
 };
+
+// Adapt an existing enum you don't control so it works with generic code
+namespace another_lib {
+enum class SomebodyElse { FIRST, SECOND };
+}
+WISE_ENUM_ADAPT(another_lib::SomebodyElse, FIRST, SECOND)
 ```
 
 You can ask the enum how many enumerators it has:

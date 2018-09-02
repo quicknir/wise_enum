@@ -123,7 +123,21 @@ constexpr int strcmp(const char *s1, const char *s2) {
 #define WISE_ENUM_IMPL_3(type, name, storage, friendly, num_enums, loop, ...)  \
   type name storage{                                                           \
       loop(WISE_ENUM_IMPL_ENUM_INIT, _, WISE_ENUM_IMPL_COMMA, __VA_ARGS__)};   \
-                                                                               \
+  WISE_ENUM_IMPL_ADAPT_3(name, friendly, num_enums, loop, __VA_ARGS__)
+
+#define WISE_ENUM_IMPL_ADAPT(name, ...)                                        \
+  namespace wise_enum {                                                        \
+  namespace detail {                                                           \
+  WISE_ENUM_IMPL_ADAPT_2(name, WISE_ENUM_IMPL_NARG(__VA_ARGS__), __VA_ARGS__)  \
+  }                                                                            \
+  }
+
+#define WISE_ENUM_IMPL_ADAPT_2(name, num_enums, ...)                           \
+  WISE_ENUM_IMPL_ADAPT_3(name, , num_enums,                                    \
+                         WISE_ENUM_IMPL_CAT(WISE_ENUM_IMPL_LOOP_, num_enums),  \
+                         __VA_ARGS__)
+
+#define WISE_ENUM_IMPL_ADAPT_3(name, friendly, num_enums, loop, ...)           \
   friendly constexpr auto wise_enum_detail_array(                              \
       ::wise_enum::detail::Tag<name>) {                                        \
     return std::array<::wise_enum::detail::value_and_name<name>, num_enums>{   \

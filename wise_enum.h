@@ -27,9 +27,8 @@
  the first entry is the identifier and the second entry is the initializer.
 
  Usage notes:
-   1) Must be used at namespace scope, not nested inside a class.
-   2) A semi-colon after the macro invocation is not necessary, and your
-      compiler may warn for it
+   - A semi-colon after the macro invocation is not necessary, and your
+     compiler may warn for it
 */
 
 // Declare an enum at namespace scope
@@ -46,6 +45,14 @@
 // Declare an enum class at class scope
 #define WISE_ENUM_CLASS_MEMBER(name, ...)                                      \
   WISE_ENUM_IMPL(enum class, name, friend, __VA_ARGS__)
+
+/*
+ Adapt an existing enum into the wise enum API. This macro must be used at
+ global scope. The first argument must be the name of the enum (qualified),
+ followed by all the enumerators of the enum.
+*/
+#define WISE_ENUM_ADAPT(name, ...)                                             \
+  WISE_ENUM_IMPL_ADAPT(name, __VA_ARGS__)
 
 namespace wise_enum {
 
