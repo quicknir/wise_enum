@@ -11,8 +11,13 @@
 // Equivalent to enum Color {GREEN = 2, RED};
 WISE_ENUM(Color, (GREEN, 2), RED)
 
-// Equivalent to enum class MoreColor {BLUE, BLACK = 1};
-WISE_ENUM_CLASS(MoreColor, BLUE, (BLACK, 1))
+// Equivalent to enum class MoreColor : char {BLUE, BLACK = 1};
+WISE_ENUM_CLASS((MoreColor, int64_t), BLUE, (BLACK, 1))
+
+// Inside a class, must use a different macro, but still works
+struct Bar {
+    WISE_ENUM_MEMBER(Foo, BUZ)
+};
 
 int main() {
 
@@ -43,6 +48,9 @@ int main() {
   static_assert(!wise_enum::is_wise_enum_v<int>, "");
   enum flub { blub, glub };
   static_assert(!wise_enum::is_wise_enum_v<flub>, "");
+
+  // Assert underlying type
+  static_assert(std::is_same<int64_t, std::underlying_type_t<MoreColor>>::value, "");
 
   return 0;
 }

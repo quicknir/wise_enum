@@ -81,6 +81,12 @@ constexpr int strcmp(const char *s1, const char *s2) {
   WISE_ENUM_IMPL_CHECK(WISE_ENUM_IMPL_IS_PAREN_PROBE x)
 #define WISE_ENUM_IMPL_IS_PAREN_PROBE(...) WISE_ENUM_IMPL_PROBE(~)
 
+#define WISE_ENUM_IMPL_FIRST_ARG(x, ...) x
+
+#define WISE_ENUM_IMPL_ONLY_OR_FIRST(x)                                        \
+  WISE_ENUM_IMPL_IIF(WISE_ENUM_IMPL_IS_PAREN(x))                               \
+  (WISE_ENUM_IMPL_FIRST_ARG x, x)
+
 // Use building blocks to conditionally process enumerators; they can either be
 // just an identifier, or (identifier, value)
 #define WISE_ENUM_IMPL_ENUM_INIT_2(x, ...) x = __VA_ARGS__
@@ -88,41 +94,45 @@ constexpr int strcmp(const char *s1, const char *s2) {
   WISE_ENUM_IMPL_IIF(WISE_ENUM_IMPL_IS_PAREN(x))                               \
   (WISE_ENUM_IMPL_ENUM_INIT_2 x, x)
 
-#define WISE_ENUM_IMPL_ENUM_2(x, ...) x
-#define WISE_ENUM_IMPL_ENUM(x)                                                 \
-  WISE_ENUM_IMPL_IIF(WISE_ENUM_IMPL_IS_PAREN(x))                               \
-  (WISE_ENUM_IMPL_ENUM_2 x, x)
-
-#define WISE_ENUM_IMPL_ENUM_STR(x) WISE_ENUM_IMPL_STR(WISE_ENUM_IMPL_ENUM(x))
+#define WISE_ENUM_IMPL_ENUM_STR(x)                                             \
+  WISE_ENUM_IMPL_STR(WISE_ENUM_IMPL_ONLY_OR_FIRST(x))
 
 #define WISE_ENUM_IMPL_DESC_PAIR(name, x)                                      \
-  { name::WISE_ENUM_IMPL_ENUM(x), WISE_ENUM_IMPL_ENUM_STR(x) }
+  { name::WISE_ENUM_IMPL_ONLY_OR_FIRST(x), WISE_ENUM_IMPL_ENUM_STR(x) }
 
 #define WISE_ENUM_IMPL_SWITCH_CASE(name, x)                                    \
-  case name::WISE_ENUM_IMPL_ENUM(x):                                           \
+  case name::WISE_ENUM_IMPL_ONLY_OR_FIRST(x):                                  \
     return WISE_ENUM_IMPL_ENUM_STR(x);
 
-#define WISE_ENUM_IMPL(type, name, storage, ...)                               \
-  WISE_ENUM_IMPL_2(type, name, storage, WISE_ENUM_IMPL_NARG(__VA_ARGS__),      \
-                   __VA_ARGS__)
+#define WISE_ENUM_IMPL_STORAGE_2(x, y) y
 
-#define WISE_ENUM_IMPL_2(type, name, storage, num_enums, ...)                  \
-  WISE_ENUM_IMPL_3(type, name, storage, num_enums,                             \
+#define WISE_ENUM_IMPL_STORAGE(x)                                              \
+  WISE_ENUM_IMPL_IIF(WISE_ENUM_IMPL_IS_PAREN(x))                               \
+  ( : WISE_ENUM_IMPL_STORAGE_2 x, )
+
+#define WISE_ENUM_IMPL(type, name_storage, friendly, ...)                      \
+  WISE_ENUM_IMPL_2(type, WISE_ENUM_IMPL_ONLY_OR_FIRST(name_storage),           \
+                   WISE_ENUM_IMPL_STORAGE(name_storage), friendly,             \
+                   WISE_ENUM_IMPL_NARG(__VA_ARGS__), __VA_ARGS__)
+
+#define WISE_ENUM_IMPL_2(type, name, storage, friendly, num_enums, ...)        \
+  WISE_ENUM_IMPL_3(type, name, storage, friendly, num_enums,                   \
                    WISE_ENUM_IMPL_CAT(WISE_ENUM_IMPL_LOOP_, num_enums),        \
                    __VA_ARGS__)
 
-#define WISE_ENUM_IMPL_3(type, name, storage, num_enums, loop, ...)            \
+#define WISE_ENUM_IMPL_3(type, name, storage, friendly, num_enums, loop, ...)  \
   type name storage{                                                           \
       loop(WISE_ENUM_IMPL_ENUM_INIT, _, WISE_ENUM_IMPL_COMMA, __VA_ARGS__)};   \
                                                                                \
-  constexpr auto wise_enum_detail_array(::wise_enum::detail::Tag<name>) {      \
+  friendly constexpr auto wise_enum_detail_array(                              \
+      ::wise_enum::detail::Tag<name>) {                                        \
     return std::array<::wise_enum::detail::value_and_name<name>, num_enums>{   \
         {loop(WISE_ENUM_IMPL_DESC_PAIR, name, WISE_ENUM_IMPL_COMMA,            \
               __VA_ARGS__)}};                                                  \
   }                                                                            \
                                                                                \
   template <class T>                                                           \
-  constexpr const char *wise_enum_detail_to_string(                            \
+  friendly constexpr const char *wise_enum_detail_to_string(                   \
       T e, ::wise_enum::detail::Tag<name>) {                                   \
     switch (e) {                                                               \
       loop(WISE_ENUM_IMPL_SWITCH_CASE, name, WISE_ENUM_IMPL_NOTHING,           \

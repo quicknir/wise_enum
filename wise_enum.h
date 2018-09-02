@@ -19,13 +19,12 @@
 /*
  Macro interface
 
- All macro enums take the name of the enum as the first argument. Those
- suffixed with _STORAGE take a second argument which is the explicit storage
- parameter. After that, the macros take a variadic enumerator list. Each entry
- in the list can be either a legal identifier name, or it can be a
- parenthesized pair where the first entry is the identifier and the second
- entry is the initializer. This declares an enum (not enum class) of implicit
- storage capacity
+ The first argument to any macro enum is either the name of the enum, or a
+ parenthesized pair, (name, storage). The first form results in unfixed
+ underlying type for the enum, while the second form defines it explicitly.
+ After that, the macros take a variadic enumerator list. Each entry in the list
+ can be either a legal identifier name, or it can be a parenthesized pair where
+ the first entry is the identifier and the second entry is the initializer.
 
  Usage notes:
    1) Must be used at namespace scope, not nested inside a class.
@@ -33,20 +32,20 @@
       compiler may warn for it
 */
 
-// Declare an enum of implicit storage
+// Declare an enum at namespace scope
 #define WISE_ENUM(name, ...) WISE_ENUM_IMPL(enum, name, , __VA_ARGS__)
 
-// Declare an enum of explicitly specified storage
-#define WISE_ENUM_STORAGE(name, storage, ...)                                  \
-  WISE_ENUM_IMPL(enum, name, : storage, __VA_ARGS__)
-
-// Declare an enum class of implicit storage
+// Declare an enum class at namespace scope
 #define WISE_ENUM_CLASS(name, ...)                                             \
   WISE_ENUM_IMPL(enum class, name, , __VA_ARGS__)
 
-// Declare an enum class of explicitly specified storage
-#define WISE_ENUM_CLASS_STORAGE(name, storage, ...)                            \
-  WISE_ENUM_IMPL(enum class, name, : storage, __VA_ARGS__)
+// Declare an enum at class scope
+#define WISE_ENUM_MEMBER(name, ...)                                            \
+  WISE_ENUM_IMPL(enum, name, friend, __VA_ARGS__)
+
+// Declare an enum class at class scope
+#define WISE_ENUM_CLASS_MEMBER(name, ...)                                      \
+  WISE_ENUM_IMPL(enum class, name, friend, __VA_ARGS__)
 
 namespace wise_enum {
 
