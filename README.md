@@ -115,12 +115,13 @@ optional implementation, or provide a non-optional API (it's used for the string
 There are some known limitations:
 
  - It can't be used inside a class, unfortunately. This probably cannot ever
- change. Suggested workaround is to declare it in a detail namespace, and then
- use an alias inside your class
- - Enumerators cannot have duplicated values. This breaks to string conversions,
-   specifically. If there's demand, a special macro may be provided that allows
-   declaring enums with non-unique values, and simply doesn't provide a to string
-   function
+   change. Suggested workaround is to declare it in a detail namespace, and then
+   use an alias inside your class
+ - If there are enumerators with the same value, then `to_string` will not work.
+   You can declare the enum and use all the other API. This is both because it
+   doesn't jive at all with the implementation, and even conceptually it's not
+   clear how you would handle a conversion to string since multiple strings
+   would be associated with the same value.
  - By default, you are limited to 256 enumerations. If you need more, simply run
    the `create_generated` script to create a file with as many as you need, and
    replace `wise_enum_generated` with that file. The default limit may be raised
