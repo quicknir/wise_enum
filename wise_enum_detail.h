@@ -4,36 +4,47 @@
 #include <type_traits>
 #include <utility>
 
-namespace wise_enum {
-
 // optional type needed for interface
 #ifndef WISE_ENUM_OPTIONAL
 #if __cplusplus == 201703L
 #include <optional>
+namespace wise_enum {
 template <class T>
 using optional_type = std::optional<T>;
+}
 #elif __cplusplus == 201402L
 #include "optional.h"
+namespace wise_enum {
 template <class T>
 using optional_type = wise_enum::optional<T>;
+}
 #endif
 #else
+namespace wise_enum {
 template <class T>
 using optional_type = WISE_ENUM_OPTIONAL<T>;
+}
 #endif
 
 // Choice of string_view if type defined, otherwise use string literal
 #ifndef WISE_ENUM_STRING_TYPE
 #if __cplusplus == 201703L
 #include <string_view>
+namespace wise_enum {
 using string_type = std::string_view;
+}
 #else
-using string_type = const char*;
+namespace wise_enum {
+using string_type = const char *;
+}
 #endif
 #else
+namespace wise_enum {
 using string_type = WISE_ENUM_STRING_TYPE;
+}
 #endif
 
+namespace wise_enum {
 namespace detail {
 
 template <class T>
@@ -62,6 +73,16 @@ constexpr int strcmp(const char *s1, const char *s2) {
   } else {
     return 0;
   }
+}
+
+constexpr bool compare(const char *s1, const char *s2) {
+  return strcmp(s1, s2) == 0;
+}
+
+template <class U,
+          class = std::enable_if_t<!std::is_same<U, const char *>::value>>
+constexpr bool compare(U u1, U u2) {
+  return u1 == u2;
 }
 }
 }
@@ -161,7 +182,7 @@ constexpr int strcmp(const char *s1, const char *s2) {
   }                                                                            \
                                                                                \
   template <class T>                                                           \
-  friendly constexpr const char *wise_enum_detail_to_string(                   \
+  friendly constexpr ::wise_enum::string_type wise_enum_detail_to_string(      \
       T e, ::wise_enum::detail::Tag<name>) {                                   \
     switch (e) {                                                               \
       loop(WISE_ENUM_IMPL_SWITCH_CASE, name, WISE_ENUM_IMPL_NOTHING,           \

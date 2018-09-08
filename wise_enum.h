@@ -43,14 +43,13 @@
  global scope. The first argument must be the name of the enum (qualified),
  followed by all the enumerators of the enum.
 */
-#define WISE_ENUM_ADAPT(name, ...)                                             \
-  WISE_ENUM_IMPL_ADAPT(name, __VA_ARGS__)
+#define WISE_ENUM_ADAPT(name, ...) WISE_ENUM_IMPL_ADAPT(name, __VA_ARGS__)
 
 namespace wise_enum {
 
 // Returns the string representation of an enumerator
 template <class T>
-constexpr const char *to_string(T t) {
+constexpr string_type to_string(T t) {
   return wise_enum_detail_to_string(t, detail::Tag<T>{});
 }
 
@@ -74,9 +73,9 @@ struct is_wise_enum : std::integral_constant<bool, is_wise_enum_v<T>> {};
 // Converts a string literal into a wise enum. Returns an optional<T>; if no
 // enumerator has name matching the string, the optional is returned empty.
 template <class T>
-constexpr optional_type<T> from_string(const char *arg) {
+constexpr optional_type<T> from_string(string_type s) {
   auto it = std::find_if(range<T>.begin(), range<T>.end(), [=](const auto &x) {
-    return ::wise_enum::detail::strcmp(x.name, arg) == 0;
+    return ::wise_enum::detail::compare(x.name, s);
   });
   if (it == range<T>.end())
     return {};
