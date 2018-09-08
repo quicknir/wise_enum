@@ -1,8 +1,3 @@
-#if __cplusplus == 201402L
-#include <experimental/optional>
-#define WISE_ENUM_OPTIONAL std::experimental::optional
-#endif
-
 #include "wise_enum.h"
 
 #include <cassert>
