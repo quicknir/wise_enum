@@ -23,19 +23,6 @@ template <class T>
 static constexpr bool is_wise_enum =
     !std::is_same<void, decltype(wise_enum_detail_array(Tag<T>{}))>::value;
 
-template <class T, std::size_t N, std::size_t... Is>
-constexpr std::array<T, N>
-desc_array_to_array_impl(const std::array<std::pair<T, const char *>, N> &a,
-                         std::index_sequence<Is...>) {
-  return {a[Is].first...};
-}
-
-template <class T, std::size_t N>
-constexpr std::array<T, N>
-desc_array_to_array(const std::array<std::pair<T, const char *>, N> &a) {
-  return desc_array_to_array_impl(a, std::make_index_sequence<N>{});
-}
-
 constexpr int strcmp(const char *s1, const char *s2) {
   while (*s1 && (*s1 == *s2))
     s1++, s2++;
