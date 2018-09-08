@@ -48,35 +48,6 @@
 
 namespace wise_enum {
 
-// optional type needed for interface
-#ifndef WISE_ENUM_OPTIONAL
-#if __cplusplus == 201703L
-#include <optional>
-template <class T>
-using optional_type = std::optional<T>;
-#elif __cplusplus == 201402L
-#include "optional.h"
-template <class T>
-using optional_type = wise_enum::optional<T>;
-#endif
-#else
-template <class T>
-using optional_type = WISE_ENUM_OPTIONAL<T>;
-#endif
-
-// Choice of string_view if type defined, otherwise use string literal
-#ifndef WISE_ENUM_STRING_TYPE
-#if __cplusplus == 201703L
-#include <string_view>
-using string_type = std::string_view;
-#else
-using string_type = const char*;
-#endif
-#else
-using string_type = WISE_ENUM_STRING_TYPE;
-#endif
-
-
 // Returns the string representation of an enumerator
 template <class T>
 constexpr const char *to_string(T t) {
