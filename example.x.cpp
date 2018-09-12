@@ -1,4 +1,5 @@
 #include "wise_enum.h"
+#include "compact_optional.h"
 
 #include <cassert>
 #include <iostream>
@@ -64,6 +65,15 @@ int main() {
     std::cerr << static_cast<int>(e.value) << " "
               << wise_enum::to_string(e.value) << "\n";
   }
+
+  // Compact optional demo
+  wise_enum::compact_optional<my_lib::Color> o;
+  assert(!o);
+  assert(o.value_or(my_lib::Color::RED) == my_lib::Color::RED);
+  o = my_lib::Color::GREEN;
+  assert(o.value() == my_lib::Color::GREEN);
+  o.reset();
+  assert(!o);
 
   return 0;
 }
