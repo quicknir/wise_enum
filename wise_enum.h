@@ -54,8 +54,8 @@ constexpr string_type to_string(T t) {
 }
 
 // For a given wise enum type, this variable allows iteration over enumerators
-// and their string literal names in the declared order. Each iterated object
-// has type std::pair<T, const char*>
+// and their string names in the declared order. Each iterated object is a
+// struct with members { T value; string_type name; }
 template <class T>
 constexpr auto range = wise_enum_detail_array(detail::Tag<T>{});
 
@@ -82,4 +82,4 @@ constexpr optional_type<T> from_string(string_type s) {
 
   return it->value;
 }
-}
+} // namespace wise_enum
