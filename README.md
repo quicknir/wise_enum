@@ -129,8 +129,8 @@ optional type, and the string type.
 
 | Type          | 14 default          | 17 default       | customize macro       |
 | ------------- | ----------------- | ----------      | ---------------      |
-| optional      | 'wise_enum::optional' | 'std::optional'    | 'WISE_ENUM_OPTIONAL'    |
-| string        | 'const char *'        | 'std::string_view' | 'WISE_ENUM_STRING_TYPE' |
+| optional      | `wise_enum::optional` | `std::optional`    | `WISE_ENUM_OPTIONAL`    |
+| string        | `const char *`        | `std::string_view` | `WISE_ENUM_STRING_TYPE` |
 
 If you only support 17, the defaults should be fine. If you're on 14, the
 defaults are fine as well, but if you want to be forward compatible I'd consider
