@@ -122,13 +122,36 @@ currently a linear search; this may be changed in the future (most alternatives
 are not trivial to implement without doing heap allocations or dynamic
 initialization).
 
-### Requirements
+### Types and Customizations
 
-wise_enum does require an `optional` like type. If compiled with 17 it will
-automatically use `std::optional` but if you are compiling with 14, you'll need
-to supply it an optional-like type by defining a macro. I may package an
-optional implementation, or provide a non-optional API (it's used for the string
--> enum conversion), in the near future (depending as well on feedback).
+There are two types that you can customize in wise_enum, by defining macros: the
+optional type, and the string type.
+
+| Type          | 14 default          | 17 default       | customize macro       |
+| ------------- | ----------------- | ----------      | ---------------      |
+| optional      | 'wise_enum::optional' | 'std::optional'    | 'WISE_ENUM_OPTIONAL'    |
+| string        | 'const char *'        | 'std::string_view' | 'WISE_ENUM_STRING_TYPE' |
+
+If you only support 17, the defaults should be fine. If you're on 14, the
+defaults are fine as well, but if you want to be forward compatible I'd consider
+rounding up a string_view implementation somewhere and using that. Otherwise,
+since `const char*` and `string_view` don't have the same interface, you may
+have breakages when upgrading. Finally, if you're supporting both 14 and 17 I'd
+definitely define both macros so the same type is used in your builds.
+
+You can define the macro either in your build system, or by having a stub header
+that defines them and then includes `wise_enum.h`, and only including via the
+stub.
+
+### Extra Features
+
+Over time I'd like to leverage some of the capabilities of wise enum to do other useful enum related things.
+
+#### Compact optional
+
+I have a compact optional implementation included now in wise enum. The key point is that it uses compile time reflection to statically verified that the sentinel value used to indicate the absence of an enum, is not a value used for any of the enumerators. If you add an enumerator to an enum used in a compact optional, and the value of the enum is the sentinel, you get a compilation error.
+
+Other than that, I'd like to look into enum sets at some point.
 
 ### Limitations
 
