@@ -5,7 +5,7 @@
 #include <utility>
 
 // optional type needed for interface
-#ifndef WISE_ENUM_OPTIONAL
+#ifndef WISE_ENUM_OPTIONAL_TYPE
 #if __cplusplus == 201703L
 #include <optional>
 namespace wise_enum {
@@ -22,7 +22,7 @@ using optional_type = wise_enum::optional<T>;
 #else
 namespace wise_enum {
 template <class T>
-using optional_type = WISE_ENUM_OPTIONAL<T>;
+using optional_type = WISE_ENUM_OPTIONAL_TYPE<T>;
 }
 #endif
 
