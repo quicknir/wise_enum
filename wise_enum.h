@@ -65,18 +65,19 @@ constexpr std::size_t size = range<T>.size();
 
 // A type trait; this allows checking if a type is a wise_enum in generic code
 template <class T>
-static constexpr bool is_wise_enum_v = detail::is_wise_enum<T>;
+using is_wise_enum = detail::is_wise_enum<T>;
 
 template <class T>
-struct is_wise_enum : std::integral_constant<bool, is_wise_enum_v<T>> {};
+static constexpr bool is_wise_enum_v = is_wise_enum<T>::value;
 
 // Converts a string literal into a wise enum. Returns an optional<T>; if no
 // enumerator has name matching the string, the optional is returned empty.
 template <class T>
-constexpr optional_type<T> from_string(string_type s) {
-  auto it = std::find_if(range<T>.begin(), range<T>.end(), [=](const auto &x) {
-    return ::wise_enum::detail::compare(x.name, s);
-  });
+WISE_ENUM_CONSTEXPR_14 optional_type<T> from_string(string_type s) {
+  auto it = std::find_if(range<T>.begin(), range<T>.end(),
+                         [=](const detail::value_and_name<T> &x) {
+                           return ::wise_enum::detail::compare(x.name, s);
+                         });
   if (it == range<T>.end())
     return {};
 

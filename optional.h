@@ -3,6 +3,12 @@
 #include <stdexcept>
 #include <type_traits>
 
+#if __cplusplus == 201103
+#define WISE_ENUM_CONSTEXPR_14
+#else
+#define WISE_ENUM_CONSTEXPR_14 constexpr
+#endif
+
 namespace wise_enum {
 
 struct bad_optional_access : std::exception {
@@ -24,15 +30,15 @@ public:
   optional() = default;
   optional(T t) : m_t(t), m_active(true) {}
 
-  constexpr T &operator*() & { return m_t; }
+  WISE_ENUM_CONSTEXPR_14 T &operator*() & { return m_t; }
   constexpr const T &operator*() const & { return m_t; }
-  constexpr T &&operator*() && { return m_t; }
+  WISE_ENUM_CONSTEXPR_14 T &&operator*() && { return m_t; }
   constexpr const T &&operator*() const && { return m_t; }
 
   constexpr explicit operator bool() const noexcept { return m_active; }
   constexpr bool has_value() const noexcept { return m_active; }
 
-  constexpr T &value() & {
+  WISE_ENUM_CONSTEXPR_14 T &value() & {
     if (m_active)
       return m_t;
     else
@@ -45,7 +51,7 @@ public:
       throw bad_optional_access{};
   }
 
-  constexpr T &&value() && {
+  WISE_ENUM_CONSTEXPR_14 T &&value() && {
     if (m_active)
       return m_t;
     else
@@ -77,4 +83,4 @@ private:
   T m_t;
   bool m_active = false;
 };
-}
+} // namespace wise_enum

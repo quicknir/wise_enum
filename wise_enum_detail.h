@@ -12,7 +12,7 @@ namespace wise_enum {
 template <class T>
 using optional_type = std::optional<T>;
 }
-#elif __cplusplus == 201402L
+#else
 #include "optional.h"
 namespace wise_enum {
 template <class T>
@@ -44,6 +44,12 @@ using string_type = WISE_ENUM_STRING_TYPE;
 }
 #endif
 
+#if __cplusplus == 201103
+#define WISE_ENUM_CONSTEXPR_14
+#else
+#define WISE_ENUM_CONSTEXPR_14 constexpr
+#endif
+
 namespace wise_enum {
 namespace detail {
 
@@ -59,10 +65,12 @@ struct Tag {};
 constexpr void wise_enum_detail_array(...);
 
 template <class T>
-static constexpr bool is_wise_enum =
-    !std::is_same<void, decltype(wise_enum_detail_array(Tag<T>{}))>::value;
+struct is_wise_enum
+    : std::integral_constant<
+          bool, !std::is_same<void, decltype(wise_enum_detail_array(
+                                        Tag<T>{}))>::value> {};
 
-constexpr int strcmp(const char *s1, const char *s2) {
+WISE_ENUM_CONSTEXPR_14 int strcmp(const char *s1, const char *s2) {
   while (*s1 && (*s1 == *s2))
     s1++, s2++;
   if (*s1 < *s2) {
@@ -75,17 +83,17 @@ constexpr int strcmp(const char *s1, const char *s2) {
   }
 }
 
-constexpr bool compare(const char *s1, const char *s2) {
+WISE_ENUM_CONSTEXPR_14 bool compare(const char *s1, const char *s2) {
   return strcmp(s1, s2) == 0;
 }
 
-template <class U,
-          class = std::enable_if_t<!std::is_same<U, const char *>::value>>
-constexpr bool compare(U u1, U u2) {
+template <class U, class = typename std::enable_if<
+                       !std::is_same<U, const char *>::value>::type>
+WISE_ENUM_CONSTEXPR_14 bool compare(U u1, U u2) {
   return u1 == u2;
 }
-}
-}
+} // namespace detail
+} // namespace wise_enum
 
 #define WISE_ENUM_IMPL_NARG(...)                                               \
   WISE_ENUM_IMPL_NARG_(__VA_ARGS__, WISE_ENUM_IMPL_RSEQ_N())
@@ -174,16 +182,16 @@ constexpr bool compare(U u1, U u2) {
                          __VA_ARGS__)
 
 #define WISE_ENUM_IMPL_ADAPT_3(name, friendly, num_enums, loop, ...)           \
-  friendly constexpr auto wise_enum_detail_array(                              \
-      ::wise_enum::detail::Tag<name>) {                                        \
-    return std::array<::wise_enum::detail::value_and_name<name>, num_enums>{   \
-        {loop(WISE_ENUM_IMPL_DESC_PAIR, name, WISE_ENUM_IMPL_COMMA,            \
-              __VA_ARGS__)}};                                                  \
+  friendly constexpr std::array<::wise_enum::detail::value_and_name<name>,     \
+                                num_enums>                                     \
+  wise_enum_detail_array(::wise_enum::detail::Tag<name>) {                     \
+    return {{loop(WISE_ENUM_IMPL_DESC_PAIR, name, WISE_ENUM_IMPL_COMMA,        \
+                  __VA_ARGS__)}};                                              \
   }                                                                            \
                                                                                \
   template <class T>                                                           \
-  friendly constexpr ::wise_enum::string_type wise_enum_detail_to_string(      \
-      T e, ::wise_enum::detail::Tag<name>) {                                   \
+  friendly WISE_ENUM_CONSTEXPR_14 ::wise_enum::string_type                     \
+  wise_enum_detail_to_string(T e, ::wise_enum::detail::Tag<name>) {            \
     switch (e) {                                                               \
       loop(WISE_ENUM_IMPL_SWITCH_CASE, name, WISE_ENUM_IMPL_NOTHING,           \
            __VA_ARGS__)                                                        \
