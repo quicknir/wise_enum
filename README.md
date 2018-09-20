@@ -2,7 +2,7 @@
 
 > Because reflection makes you wise, not smart
 
-`wise_enum` is a standalone smart enum library for C++14 (or later). It supports
+`wise_enum` is a standalone smart enum library for C++11/14/17. It supports
 all of the standard functionality that you would expect from a smart enum class
 in C++:
  - Tells you the number of enumerators
@@ -122,21 +122,29 @@ currently a linear search; this may be changed in the future (most alternatives
 are not trivial to implement without doing heap allocations or dynamic
 initialization).
 
+### Version differences
+
+Wise enum tries to target each language version idiomatically. In 11, template
+variables, which are the recommended interface in 14/17 are not available so using
+the typical class template static interface instead is necessary. Many functions lose
+`constexpr` in 11. The difference between 14 and 17 is mostly in the types used,
+discussed in the next section.
+
 ### Types and Customizations
 
 There are two types that you can customize in wise_enum, by defining macros: the
 optional type, and the string type.
 
-| Type          | 14 default          | 17 default       | customize macro       | type alias |
+| Type          | 11/14 default       | 17 default       | customize macro       | type alias |
 | ------------- | ----------------- | ----------      | ---------------      |
 | optional      | `wise_enum::optional` | `std::optional`    | `WISE_ENUM_OPTIONAL`    | `wise_enum::optional_type<T>` |
 | string        | `const char *`        | `std::string_view` | `WISE_ENUM_STRING_TYPE` | `wise_enum::string_type` |
 
-If you only support 17, the defaults should be fine. If you're on 14, the
+If you only support 17, the defaults should be fine. If you're on 11/14, the
 defaults are fine as well, but if you want to be forward compatible I'd consider
 rounding up a string_view implementation somewhere and using that. Otherwise,
 since `const char*` and `string_view` don't have the same interface, you may
-have breakages when upgrading. Finally, if you're supporting both 14 and 17 I'd
+have breakages when upgrading. Finally, if you're supporting both 11/14 and 17 I'd
 definitely define both macros so the same type is used in your builds.
 
 You can define the macro either in your build system, or by having a stub header
@@ -151,7 +159,28 @@ Over time I'd like to leverage some of the capabilities of wise enum to do other
 
 I have a compact optional implementation included now in wise enum. The key point is that it uses compile time reflection to statically verified that the sentinel value used to indicate the absence of an enum, is not a value used for any of the enumerators. If you add an enumerator to an enum used in a compact optional, and the value of the enum is the sentinel, you get a compilation error.
 
-Other than that, I'd like to look into enum sets at some point.
+#### Switch case "lifts"
+
+One problem where C++ gives you little recourse is when you have a runtime value that
+you want to lift into a compile time value. Consider the following:
+
+```
+template <MyEnum E>
+class MyDerived : MyInterface {...};
+
+unique_ptr<MyInterface> make(MyEnum e);
+```
+
+It's hard to write `make` without boilerplate in the general case. You need to manually
+switch case over all enumerator values, and in each case put the compile time constant
+into the template. Wise enum will shortly (exact interface being worked out) provide
+a facility that takes an enum and a lambda, does the switch case over all values
+internally, and calls the lambda making the enum available as a compile time constant.
+
+Coming soon!
+
+#### Enum Sets
+Planned for the future.
 
 ### Limitations
 
@@ -176,8 +205,3 @@ I started with it, but the limit on sequences was very disappointing (64) and
 there didn't seem to be any easy way to change it. So then I started down the
 codegen route, and once there, I wasn't using very much. I know there are always
 people who prefer to avoid the dependency, so I decided to drop it.
-
-##### What about C++11?
-I'm not likely to add support myself, but I welcome pull requests. This code
-will require quite a bit of attention to detail though, around the matter of
-`constexpr`.
