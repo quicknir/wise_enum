@@ -53,32 +53,54 @@ constexpr string_type to_string(T t) {
   return wise_enum_detail_to_string(t, detail::Tag<T>{});
 }
 
-// For a given wise enum type, this variable allows iteration over enumerators
-// and their string names in the declared order. Each iterated object is a
-// struct with members { T value; string_type name; }
+// Enumerators trait class. Each value is also available as a template variable
+// for C++14 and on
 template <class T>
-constexpr auto range = wise_enum_detail_array(detail::Tag<T>{});
+struct enumerators {
+  // For a given wise enum type, this variable allows iteration over enumerators
+  // and their string names in the declared order. Each iterated object is a
+  // struct with members { T value; string_type name; }
+  static constexpr decltype(wise_enum_detail_array(detail::Tag<T>{})) range =
+      wise_enum_detail_array(detail::Tag<T>{});
 
-// This variable is equal to the number of enumerators for the wise enum type.
+  // This variable is equal to the number of enumerators for the wise enum type.
+  static constexpr std::size_t size = range.size();
+};
+
 template <class T>
-constexpr std::size_t size = range<T>.size();
+constexpr decltype(
+    wise_enum_detail_array(detail::Tag<T>{})) enumerators<T>::range;
+
+template <class T>
+constexpr std::size_t enumerators<T>::size;
+
+#if __cplusplus >= 201402
+template <class T>
+constexpr auto &range = enumerators<T>::range;
+
+template <class T>
+constexpr std::size_t size = enumerators<T>::size;
+#endif
 
 // A type trait; this allows checking if a type is a wise_enum in generic code
 template <class T>
 using is_wise_enum = detail::is_wise_enum<T>;
 
+#if __cplusplus >= 201402
 template <class T>
 static constexpr bool is_wise_enum_v = is_wise_enum<T>::value;
+#endif
 
 // Converts a string literal into a wise enum. Returns an optional<T>; if no
 // enumerator has name matching the string, the optional is returned empty.
 template <class T>
 WISE_ENUM_CONSTEXPR_14 optional_type<T> from_string(string_type s) {
-  auto it = std::find_if(range<T>.begin(), range<T>.end(),
-                         [=](const detail::value_and_name<T> &x) {
-                           return ::wise_enum::detail::compare(x.name, s);
-                         });
-  if (it == range<T>.end())
+  auto it =
+      std::find_if(enumerators<T>::range.begin(), enumerators<T>::range.end(),
+                   [=](const detail::value_and_name<T> &x) {
+                     return ::wise_enum::detail::compare(x.name, s);
+                   });
+  if (it == enumerators<T>::range.end())
     return {};
 
   return it->value;
