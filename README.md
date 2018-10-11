@@ -92,16 +92,6 @@ defined type. This also means that upgrading a regular enum already widely used
 No strange behavior, or edge cases, when used with other third party libraries
 (e.g. serialization), or standard library type traits.
 
-This first point is especially notable since [Better
-Enums](https://github.com/aantron/better-enums) seems like the best maintained,
-most polished, and most suggested smart enum solution I've seen. Last I checked,
-it uses enum like classes, which carry all the disadvantages mentioned above.
-This being a deal breaker for me was one of the major motivations for writing
-this library. More generally, I recommend that if you are considering a smart
-enum library, if this point isn't discussed in the docs, simply try to define an
-enum and switch case on it, or define it as a non-type template parameter. If it
-doesn't work, I'd reconsider.
-
 Second, all the functionality in defining enums is preserved. You can define
 `enum` or `enum class`es, set storage explicitly or let it be implicit, define
 the value for an enumeration, or allow it to be determined implicitly. You can
@@ -121,6 +111,33 @@ use exceptions. The enum -> string is an optimal switch-case. String -> enum is
 currently a linear search; this may be changed in the future (most alternatives
 are not trivial to implement without doing heap allocations or dynamic
 initialization).
+
+### Quick Comparison of Alternatives
+
+The best known alternative is probably [Better
+Enums](https://github.com/aantron/better-enums). The biggest issue with Better
+Enums is simply that its macros don't actually create enums or enum classes, but
+enum like classes. This carries all of the disadvantages discussed in the
+previous section, and for me was just a deal breaker. There are also more minor
+issues like not being able to define a nested enum, having a lower default
+enumeration limit. Conversely, I'm not aware of any advantages, except one: it
+does support C++03, which wise enum never will, so it's a good choice for older
+codebases.
+
+A recent interesting alternative is [Meta
+Enum](https://github.com/therocode/meta_enum). This does declare actual
+enum/enum classes. As benefits, it doesn't have any limit on the number of
+enumerations by design, and it doesn't require different macros for declaring
+enums nested inside classes. As far as I can tell though, the approach means
+that it can't support switch case generation (e.g. for to_string), nor can it
+support 11. It currently only seems to support 17 but 14 support may be
+possible.
+
+As far as I saw, neither library has something like the adapt macro, though I
+think either one could add it pretty easily. Overall, I feel
+
+If any of this information is incorrect, please let me know and I'll make
+correcting it the highest priority.
 
 ### Version differences
 
