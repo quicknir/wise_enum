@@ -134,7 +134,12 @@ support 11. It currently only seems to support 17 but 14 support may be
 possible.
 
 As far as I saw, neither library has something like the adapt macro, though I
-think either one could add it pretty easily. Overall, I feel
+think either one could add it pretty easily. There are other implementations,
+but most of the ones I've seen are very clearly very short projects, lacking
+support for basic features (e.g. controlling enum values) and documentation.
+
+Overall, I feel like wise enum is the best choice for an enum library for a
+typical, modern C++ codebase.
 
 If any of this information is incorrect, please let me know and I'll make
 correcting it the highest priority.
