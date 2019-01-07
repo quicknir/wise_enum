@@ -15,7 +15,7 @@ in C++:
 
 Let's look at a bit of code. You can declare an enum like this:
 
-```
+```cpp
 // Equivalent to enum Color {GREEN = 2, RED};
 WISE_ENUM(Color, (GREEN, 2), RED)
 ```
@@ -24,7 +24,7 @@ You can also declare an enum class instead of an enum, specify the storage
 explicitly, declare an enum nested inside a class, or even adapt an already
 declared enum:
 
-```
+```cpp
 // Equivalent to enum class MoreColor : int64_t {BLUE, BLACK = 1};
 WISE_ENUM_CLASS((MoreColor, int64_t), BLUE, (BLACK, 1))
 
@@ -42,13 +42,13 @@ WISE_ENUM_ADAPT(another_lib::SomebodyElse, FIRST, SECOND)
 
 You can ask the enum how many enumerators it has:
 
-```
+```cpp
 static_assert(wise_enum::size<Color> == 2, "");
 ```
 
 Iterate over the enumerators:
 
-```
+```cpp
 std::cerr << "Enum values and names:\n";
 for (auto e : wise_enum::range<Color>) {
   std::cerr << static_cast<int>(e.value) << " " << e.name << "\n";
@@ -57,7 +57,7 @@ for (auto e : wise_enum::range<Color>) {
 
 Convert between strings and enums:
 
-```
+```cpp
 // Convert any enum to a string
 std::cerr << wise_enum::to_string(Color::RED) << "\n";
 
@@ -70,7 +70,7 @@ assert(!x2);
 ```
 
 Check whether something is a wise enum at compile time:
-```
+```cpp
 static_assert(wise_enum::is_wise_enum_v<Color>, "");
 static_assert(!wise_enum::is_wise_enum_v<int>, "");
 enum flub { blub, glub };
@@ -186,7 +186,7 @@ I have a compact optional implementation included now in wise enum. The key poin
 One problem where C++ gives you little recourse is when you have a runtime value that
 you want to lift into a compile time value. Consider the following:
 
-```
+```cpp
 template <MyEnum E>
 class MyDerived : MyInterface {...};
 
