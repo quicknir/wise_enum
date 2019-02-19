@@ -44,16 +44,6 @@ using string_type = WISE_ENUM_STRING_TYPE;
 }
 #endif
 
-#ifndef WISE_ENUM_INVALID_ENUMERATOR_STRING_VALUE
-namespace wise_enum {
-constexpr string_type invalid_enumerator_string_value{};
-}
-#else
-namespace wise_enum {
-constexpr string_type invalid_enumerator_string_value{WISE_ENUM_INVALID_ENUMERATOR_STRING_VALUE};
-}
-#endif
-
 #if __cplusplus == 201103
 #define WISE_ENUM_CONSTEXPR_14
 #else
@@ -206,5 +196,5 @@ WISE_ENUM_CONSTEXPR_14 bool compare(U u1, U u2) {
       loop(WISE_ENUM_IMPL_SWITCH_CASE, name, WISE_ENUM_IMPL_NOTHING,           \
            __VA_ARGS__)                                                        \
     }                                                                          \
-    return wise_enum::invalid_enumerator_string_value;                         \
+    return {};                                                                 \
   }
