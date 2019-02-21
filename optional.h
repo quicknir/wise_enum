@@ -37,7 +37,7 @@ public:
 
   constexpr explicit operator bool() const noexcept { return m_active; }
   constexpr bool has_value() const noexcept { return m_active; }
-  
+
 #ifndef WISE_ENUM_NO_EXCEPTIONS
   WISE_ENUM_CONSTEXPR_14 T &value() & {
     if (m_active)
@@ -51,7 +51,7 @@ public:
     else
       throw bad_optional_access{};
   }
-  
+
   WISE_ENUM_CONSTEXPR_14 T &&value() && {
     if (m_active)
       return m_t;
