@@ -66,12 +66,18 @@ public:
     return m_storage != invalid;
   }
 
+#ifndef WISE_ENUM_NO_EXCEPTIONS
   constexpr T value() const {
     if (m_storage != invalid)
       return static_cast<T>(m_storage);
     else
       throw bad_optional_access{};
   }
+#else
+  constexpr T value() const {
+    return static_cast<T>(m_storage);
+  }
+#endif
 
   template <class U>
   constexpr T value_or(U &&u) {

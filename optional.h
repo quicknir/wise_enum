@@ -37,7 +37,8 @@ public:
 
   constexpr explicit operator bool() const noexcept { return m_active; }
   constexpr bool has_value() const noexcept { return m_active; }
-
+  
+#ifndef WISE_ENUM_NO_EXCEPTIONS
   WISE_ENUM_CONSTEXPR_14 T &value() & {
     if (m_active)
       return m_t;
@@ -50,7 +51,7 @@ public:
     else
       throw bad_optional_access{};
   }
-
+  
   WISE_ENUM_CONSTEXPR_14 T &&value() && {
     if (m_active)
       return m_t;
@@ -63,6 +64,12 @@ public:
     else
       throw bad_optional_access{};
   }
+#else
+  WISE_ENUM_CONSTEXPR_14 T &value() & { return m_t; }
+  constexpr const T &value() const & { return m_t; }
+  WISE_ENUM_CONSTEXPR_14 T &&value() && { return m_t; }
+  constexpr const T &&value() const && { return m_t; }
+#endif
 
   template <class U>
   constexpr T value_or(U &&u) {
