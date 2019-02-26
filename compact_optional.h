@@ -73,10 +73,6 @@ public:
     else
       throw bad_optional_access{};
   }
-#else
-  constexpr T value() const {
-    return static_cast<T>(m_storage);
-  }
 #endif
 
   template <class U>

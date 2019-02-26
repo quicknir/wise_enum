@@ -64,11 +64,6 @@ public:
     else
       throw bad_optional_access{};
   }
-#else
-  WISE_ENUM_CONSTEXPR_14 T &value() & { return m_t; }
-  constexpr const T &value() const & { return m_t; }
-  WISE_ENUM_CONSTEXPR_14 T &&value() && { return m_t; }
-  constexpr const T &&value() const && { return m_t; }
 #endif
 
   template <class U>
