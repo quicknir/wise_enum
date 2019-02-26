@@ -1,0 +1,185 @@
+language: cpp
+dist: xenial
+
+common_sources: &all_sources
+  - ubuntu-toolchain-r-test
+  - llvm-toolchain-xenial
+  - llvm-toolchain-xenial-4.0
+  - llvm-toolchain-xenial-5.0
+  - llvm-toolchain-xenial-6.0
+#  - llvm-toolchain-xenial-7.0
+
+
+matrix:
+  include:
+    - os: linux
+      compiler: clang
+      addons:
+          apt:
+              sources: *all_sources
+              packages: ['clang-4.0']
+      env:
+        - COMPILER='clang++-4.0'
+        - CONAN_COMP='clang'
+        - CONAN_COMPV='4.0'
+
+    - os: linux
+      compiler: clang
+      addons:
+          apt:
+              sources: *all_sources
+              packages: ['clang-4.0', 'libc++-dev']
+      env:
+        - COMPILER='clang++-4.0'
+        - CONAN_COMP='clang'
+        - CONAN_COMPV='4.0'
+        - CONAN_LIBCXX=libc++
+
+    - os: linux
+      compiler: clang
+      addons:
+          apt:
+              sources: *all_sources
+              packages: ['clang-5.0']
+      env:
+        - COMPILER='clang++-5.0'
+        - CONAN_COMP='clang'
+        - CONAN_COMPV='5.0'
+
+    - os: linux
+      compiler: clang
+      addons:
+          apt:
+              sources: *all_sources
+              packages: ['clang-5.0', 'libc++-dev']
+      env:
+        - COMPILER='clang++-5.0'
+        - CONAN_COMP='clang'
+        - CONAN_COMPV='5.0'
+        - CONAN_LIBCXX=libc++
+
+    - os: linux
+      compiler: clang
+      addons:
+          apt:
+              sources: *all_sources
+              packages: ['clang-6.0', 'libstdc++-6-dev']
+      env:
+        - COMPILER='clang++-6.0'
+        - CONAN_COMP='clang'
+        - CONAN_COMPV='6.0'
+
+    - os: linux
+      compiler: clang
+      addons:
+          apt:
+              sources: *all_sources
+              packages: ['clang-6.0', 'libstdc++-7-dev']
+      env:
+        - COMPILER='clang++-6.0'
+        - CONAN_COMP='clang'
+        - CONAN_COMPV='6.0'
+
+    - os: linux
+      compiler: clang
+      addons:
+          apt:
+              sources: *all_sources
+              packages: ['clang-6.0', 'libstdc++-8-dev']
+      env:
+        - COMPILER='clang++-6.0'
+        - CONAN_COMP='clang'
+        - CONAN_COMPV='6.0'
+
+    - os: linux
+      compiler: clang
+      addons:
+          apt:
+              sources: *all_sources
+              packages: ['clang-6.0', 'libc++-dev']
+      env:
+        - COMPILER='clang++-6.0'
+        - CONAN_COMP='clang'
+        - CONAN_COMPV='6.0'
+        - CONAN_LIBCXX=libc++
+
+
+#    - os: linux
+#      compiler: clang
+#      addons:
+#          apt:
+#              sources: *all_sources
+#              packages: ['clang-7.0']
+#      env:
+#        - COMPILER='clang++-7.0'
+#        - CONAN_COMP='clang'
+#        - CONAN_COMPV='7.0'
+
+    - os: linux
+      compiler: gcc
+      addons:
+        apt:
+          sources: *all_sources
+          packages: ['g++-5', 'libstdc++-6-dev']
+      env:
+        - COMPILER='g++-5'
+        - CONAN_COMP='gcc'
+        - CONAN_COMPV='5'
+
+    - os: linux
+      compiler: gcc
+      addons:
+        apt:
+          sources: *all_sources
+          packages: ['g++-6']
+      env:
+        - COMPILER='g++-6'
+        - CONAN_COMP='gcc'
+        - CONAN_COMPV='6'
+
+    - os: linux
+      compiler: gcc
+      addons:
+        apt:
+          sources: *all_sources
+          packages: ['g++-7']
+      env:
+        - COMPILER='g++-7'
+        - CONAN_COMP='gcc'
+        - CONAN_COMPV='7'
+
+    - os: linux
+      compiler: gcc
+      addons:
+        apt:
+          sources: *all_sources
+          packages: ['g++-8']
+      env:
+        - COMPILER='g++-8'
+        - CONAN_COMP='gcc'
+        - CONAN_COMPV='8'
+
+install:
+  - pip install --user conan
+  - conan user
+
+before_script:
+  - export CXX=${COMPILER}
+  - cd ${TRAVIS_BUILD_DIR}
+  - mkdir -p cmake-build-debug && mkdir -p cmake-build-release
+
+  - conan install -s build_type=Debug -s compiler=${CONAN_COMP} -s compiler.version=${CONAN_COMPV} -s compiler.libcxx=${CONAN_LIBCXX:-libstdc++} -if cmake-build-debug --build missing test
+  - conan install -s build_type=Release -s compiler=${CONAN_COMP} -s compiler.version=${CONAN_COMPV} -s compiler.libcxx=${CONAN_LIBCXX:-libstdc++} -if cmake-build-release --build missing test
+
+  - cmake -Htest -Bcmake-build-debug -DCMAKE_BUILD_TYPE=Debug
+  - cmake -Htest -Bcmake-build-release -DCMAKE_BUILD_TYPE=Release
+
+script:
+  - cd cmake-build-debug
+  - make
+  - ctest -V
+#  - for t in $(ls wise_enum_test*) ; do ./$t -r junit > ../$t-debug.xml ; done
+  - cd ../cmake-build-release
+  - make
+  - ctest -V
+#  - for t in $(ls wise_enum_test*) ; do ./$t -r junit > ../$t-release.xml ; done
