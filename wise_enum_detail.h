@@ -196,5 +196,5 @@ WISE_ENUM_CONSTEXPR_14 bool compare(U u1, U u2) {
       loop(WISE_ENUM_IMPL_SWITCH_CASE, name, WISE_ENUM_IMPL_NOTHING,           \
            __VA_ARGS__)                                                        \
     }                                                                          \
-    return nullptr;                                                            \
+    return {};                                                                 \
   }
