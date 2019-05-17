@@ -1,0 +1,6 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+includedir=${prefix}/include
+
+Name: @PROJECT_NAME@
+Description: wise_enum by quicknir
+Version: @PROJECT_VERSION@
