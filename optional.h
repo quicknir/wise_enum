@@ -40,7 +40,7 @@ public:
     else
       WISE_ENUM_OPTIONAL_BAD_ACCESS;
   }
-  constexpr const T &value() const & {
+  WISE_ENUM_CONSTEXPR_14 const T &value() const & {
     if (m_active)
       return m_t;
     else
@@ -53,7 +53,7 @@ public:
     else
       WISE_ENUM_OPTIONAL_BAD_ACCESS;
   }
-  constexpr const T &&value() const && {
+  WISE_ENUM_CONSTEXPR_14 const T &&value() const && {
     if (m_active)
       return m_t;
     else
@@ -61,7 +61,7 @@ public:
   }
 
   template <class U>
-  constexpr T value_or(U &&u) {
+  WISE_ENUM_CONSTEXPR_14 T value_or(U &&u) {
     if (m_active)
       return m_t;
     else
