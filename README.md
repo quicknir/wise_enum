@@ -173,6 +173,14 @@ You can define the macro either in your build system, or by having a stub header
 that defines them and then includes `wise_enum.h`, and only including via the
 stub.
 
+You can also customize the use of exceptions. If you use the CMake option
+`NO_EXCEPTIONS` or otherwise define the macro `WISE_ENUM_NO_EXCEPT`, then
+wise_enum should be fully compatible with `-fno-exceptions`. The API never
+directly throws exceptions anyhow; the only change in behavior is that the
+provided `optional` (and `compact_optional`) will abort rather than throw on
+`value()` calls if the optional is empty, similar to the behavior of most (all?)
+standard library optional implementations when exceptions are disabled.
+
 ### Extra Features
 
 Over time I'd like to leverage some of the capabilities of wise enum to do other useful enum related things.

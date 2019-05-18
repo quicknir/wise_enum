@@ -1,5 +1,7 @@
 #pragma once
 
+#include "optional_common.h"
+
 #include <stdexcept>
 #include <type_traits>
 
@@ -10,12 +12,6 @@
 #endif
 
 namespace wise_enum {
-
-struct bad_optional_access : std::exception {
-  const char *what() const noexcept override {
-    return "Error, attempt to access valueless optional!";
-  }
-};
 
 /* A simple, *forward* compatible optional implementation. That is, it does not
  * provide the full std::optional interface, but all the interface it does
@@ -42,26 +38,26 @@ public:
     if (m_active)
       return m_t;
     else
-      throw bad_optional_access{};
+      WISE_ENUM_OPTIONAL_BAD_ACCESS;
   }
   constexpr const T &value() const & {
     if (m_active)
       return m_t;
     else
-      throw bad_optional_access{};
+      WISE_ENUM_OPTIONAL_BAD_ACCESS;
   }
 
   WISE_ENUM_CONSTEXPR_14 T &&value() && {
     if (m_active)
       return m_t;
     else
-      throw bad_optional_access{};
+      WISE_ENUM_OPTIONAL_BAD_ACCESS;
   }
   constexpr const T &&value() const && {
     if (m_active)
       return m_t;
     else
-      throw bad_optional_access{};
+      WISE_ENUM_OPTIONAL_BAD_ACCESS;
   }
 
   template <class U>

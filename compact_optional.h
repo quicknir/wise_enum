@@ -1,6 +1,6 @@
 #pragma once
 
-#include "optional.h" // only for exception, consider refactoring
+#include "optional_common.h"
 #include "wise_enum.h"
 
 #include <type_traits>
@@ -9,9 +9,9 @@ namespace wise_enum {
 
 template <class T>
 constexpr bool is_enum_value(std::underlying_type_t<T> enum_integral) {
-    const auto& r = range<T>;
-    // range-for loop is not constexpr in 14
-    for (std::size_t i = 0; i != r.size(); ++i) {
+  const auto &r = range<T>;
+  // range-for loop is not constexpr in 14
+  for (std::size_t i = 0; i != r.size(); ++i) {
     if (static_cast<std::underlying_type_t<T>>(r[i].value) == enum_integral) {
       return true;
     }
@@ -70,7 +70,7 @@ public:
     if (m_storage != invalid)
       return static_cast<T>(m_storage);
     else
-      throw bad_optional_access{};
+      WISE_ENUM_OPTIONAL_BAD_ACCESS;
   }
 
   template <class U>

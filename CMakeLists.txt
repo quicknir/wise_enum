@@ -4,13 +4,17 @@ project(WiseEnum VERSION 3.0.0)
 
 option(BUILD_EXAMPLES "Build the examples" OFF)
 option(BUILD_TESTS "Build the tests" OFF)
-
+option(NO_EXCEPTIONS "Build without exceptions" OFF)
 
 file(GLOB interface_hdrs RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "*.h")
 set_property(SOURCE ${interface_hdrs} PROPERTY HEADER_FILE_ONLY ON)
 
 add_library(wise_enum INTERFACE)
 target_include_directories(wise_enum INTERFACE $<INSTALL_INTERFACE:include>)
+
+if(NO_EXCEPTIONS)
+    target_compile_definitions(wise_enum INTERFACE WISE_ENUM_NO_EXCEPT)
+endif()
 
 #
 # installation
@@ -42,7 +46,7 @@ configure_package_config_file(
         INSTALL_DESTINATION "${config_install_dir}"
 )
 
-INSTALL(TARGETS wise_enum
+install(TARGETS wise_enum
         EXPORT "${targets_export_name}"
         INCLUDES DESTINATION "${include_install_dir}"
         ARCHIVE DESTINATION "${lib_install_dir}")
@@ -69,9 +73,15 @@ install(
 # Build examples
 #
 
-if (BUILD_EXAMPLES)
+# To make the example cmake look a little more like if it were a package
+# found with find_package
+add_library(WiseEnum::wise_enum ALIAS wise_enum)
+
+if(BUILD_EXAMPLES)
     add_executable(example11 example11.x.cpp)
     set_property(TARGET example11 PROPERTY CXX_STANDARD 11)
+    target_link_libraries(example11 PRIVATE WiseEnum::wise_enum)
 
     add_executable(example example.x.cpp)
-endif ()
+    target_link_libraries(example PRIVATE WiseEnum::wise_enum)
+endif()
