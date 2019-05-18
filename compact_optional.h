@@ -18,6 +18,13 @@ constexpr bool is_enum_value(std::underlying_type_t<T> enum_integral) {
   }
   return false;
 }
+/*
+  A optional for enums that takes the same space as the underlying enum by
+  using an integer value that doesn't correspond to any enumerator to indicate
+  the "empty" state.
+
+  Requires c++14.
+ */
 
 /*
   Implementation note: this doesn't exactly implement the subset of the optional
