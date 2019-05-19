@@ -1,4 +1,5 @@
-# wise_enum ![Travis Badge](https://travis-ci.org/quicknir/wise_enum.svg?branch=master)
+# wise_enum ![Travis Badge](https://travis-ci.org/quicknir/wise_enum.svg?branch=master) [![Build status](https://ci.appveyor.com/api/projects/status/h91ay4xrbsdrq6gk/branch/master?svg=true)](https://ci.appveyor.com/project/quicknir/wise-enum/branch/master)
+
 
 > Because reflection makes you wise, not smart
 
