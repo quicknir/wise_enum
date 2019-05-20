@@ -95,8 +95,12 @@ WISE_ENUM_CONSTEXPR_14 bool compare(U u1, U u2) {
 } // namespace detail
 } // namespace wise_enum
 
+// MSVC workaround
+#define WISE_ENUM_IMPL_EXPAND(X) X
+
 #define WISE_ENUM_IMPL_NARG(...)                                               \
-  WISE_ENUM_IMPL_NARG_(__VA_ARGS__, WISE_ENUM_IMPL_RSEQ_N())
+  WISE_ENUM_IMPL_EXPAND(                                                       \
+      WISE_ENUM_IMPL_NARG_(__VA_ARGS__, WISE_ENUM_IMPL_RSEQ_N()))
 #define WISE_ENUM_IMPL_NARG_(...) WISE_ENUM_IMPL_ARG_N(__VA_ARGS__)
 
 // ARG_N and RSEQ_N defined in wise_enum_generated.h
