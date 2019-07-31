@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10.2)
 
-project(WiseEnum VERSION 3.0.0)
+project(WiseEnum VERSION 3.0.0 LANGUAGES CXX)
 
 option(BUILD_EXAMPLES "Build the examples" OFF)
 option(BUILD_TESTS "Build the tests" OFF)
