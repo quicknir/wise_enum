@@ -10,7 +10,9 @@ file(GLOB interface_hdrs RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "*.h")
 set_property(SOURCE ${interface_hdrs} PROPERTY HEADER_FILE_ONLY ON)
 
 add_library(wise_enum INTERFACE)
-target_include_directories(wise_enum INTERFACE $<INSTALL_INTERFACE:include>)
+target_include_directories(wise_enum
+  INTERFACE $<INSTALL_INTERFACE:include>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)
 
 if(NO_EXCEPTIONS)
     target_compile_definitions(wise_enum INTERFACE WISE_ENUM_NO_EXCEPT)
