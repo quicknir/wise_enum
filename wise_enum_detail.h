@@ -70,7 +70,7 @@ struct is_wise_enum
           bool, !std::is_same<void, decltype(wise_enum_detail_array(
                                         Tag<T>{}))>::value> {};
 
-WISE_ENUM_CONSTEXPR_14 int strcmp(const char *s1, const char *s2) {
+WISE_ENUM_CONSTEXPR_14 inline int strcmp(const char *s1, const char *s2) {
   while (*s1 && (*s1 == *s2))
     s1++, s2++;
   if (*s1 < *s2) {
@@ -83,7 +83,7 @@ WISE_ENUM_CONSTEXPR_14 int strcmp(const char *s1, const char *s2) {
   }
 }
 
-WISE_ENUM_CONSTEXPR_14 bool compare(const char *s1, const char *s2) {
+WISE_ENUM_CONSTEXPR_14 inline bool compare(const char *s1, const char *s2) {
   return strcmp(s1, s2) == 0;
 }
 
