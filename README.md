@@ -160,7 +160,7 @@ optional type, and the string type.
 
 | Type          | 11/14 default       | 17 default       | customize macro       | type alias |
 | ------------- | ----------------- | ----------      | ---------------      | --- |
-| optional      | `wise_enum::optional` | `std::optional`    | `WISE_ENUM_OPTIONAL`    | `wise_enum::optional_type<T>` |
+| optional      | `wise_enum::optional` | `std::optional`    | `WISE_ENUM_OPTIONAL_TYPE`    | `wise_enum::optional_type<T>` |
 | string        | `const char *`        | `std::string_view` | `WISE_ENUM_STRING_TYPE` | `wise_enum::string_type` |
 
 If you only support 17, the defaults should be fine. If you're on 11/14, the
