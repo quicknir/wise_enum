@@ -1,4 +1,4 @@
-#include "wise_enum.h"
+#include "../wise_enum.h"
 
 #include <cassert>
 #include <iostream>
