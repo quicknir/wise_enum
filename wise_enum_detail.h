@@ -6,7 +6,7 @@
 
 // optional type needed for interface
 #ifndef WISE_ENUM_OPTIONAL_TYPE
-#if __cplusplus == 201703L
+#if __cplusplus >= 201703L
 #include <optional>
 namespace wise_enum {
 template <class T>
@@ -28,7 +28,7 @@ using optional_type = WISE_ENUM_OPTIONAL_TYPE<T>;
 
 // Choice of string_view if type defined, otherwise use string literal
 #ifndef WISE_ENUM_STRING_TYPE
-#if __cplusplus == 201703L
+#if __cplusplus >= 201703L
 #include <string_view>
 namespace wise_enum {
 using string_type = std::string_view;
