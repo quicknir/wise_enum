@@ -10,8 +10,12 @@ environment:
     - GENERATOR: "Visual Studio 15 Win64"
       CONFIG: Release
 
+    - GENERATOR: "Visual Studio 17 Win64"
+      CONFIG: Release
+
 build_script:
-  - vcpkg install catch2
+  - vcpkg install catch2:x86-windows
+  - vcpkg install catch2:x64-windows
   - ps: cd test
   - cmake -DCMAKE_TOOLCHAIN_FILE=c:/tools/vcpkg/scripts/buildsystems/vcpkg.cmake "-G%GENERATOR%" -H. -B_builds -DENABLE_TESTING=1
   - cmake --build _builds --config "%CONFIG%"
