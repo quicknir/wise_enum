@@ -33,374 +33,374 @@
 #define WISE_ENUM_IMPL_LOOP_1(M, C, D, x) M(C, x)
 
 #define WISE_ENUM_IMPL_LOOP_2(M, C, D, x, ...) M(C, x) D()                              \
-  WISE_ENUM_IMPL_LOOP_1(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_1(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_3(M, C, D, x, ...) M(C, x) D()                              \
-  WISE_ENUM_IMPL_LOOP_2(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_2(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_4(M, C, D, x, ...) M(C, x) D()                              \
-  WISE_ENUM_IMPL_LOOP_3(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_3(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_5(M, C, D, x, ...) M(C, x) D()                              \
-  WISE_ENUM_IMPL_LOOP_4(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_4(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_6(M, C, D, x, ...) M(C, x) D()                              \
-  WISE_ENUM_IMPL_LOOP_5(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_5(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_7(M, C, D, x, ...) M(C, x) D()                              \
-  WISE_ENUM_IMPL_LOOP_6(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_6(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_8(M, C, D, x, ...) M(C, x) D()                              \
-  WISE_ENUM_IMPL_LOOP_7(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_7(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_9(M, C, D, x, ...) M(C, x) D()                              \
-  WISE_ENUM_IMPL_LOOP_8(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_8(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_10(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_9(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_9(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_11(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_10(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_10(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_12(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_11(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_11(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_13(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_12(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_12(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_14(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_13(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_13(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_15(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_14(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_14(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_16(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_15(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_15(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_17(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_16(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_16(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_18(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_17(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_17(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_19(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_18(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_18(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_20(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_19(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_19(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_21(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_20(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_20(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_22(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_21(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_21(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_23(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_22(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_22(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_24(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_23(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_23(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_25(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_24(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_24(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_26(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_25(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_25(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_27(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_26(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_26(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_28(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_27(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_27(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_29(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_28(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_28(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_30(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_29(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_29(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_31(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_30(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_30(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_32(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_31(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_31(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_33(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_32(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_32(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_34(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_33(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_33(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_35(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_34(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_34(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_36(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_35(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_35(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_37(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_36(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_36(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_38(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_37(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_37(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_39(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_38(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_38(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_40(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_39(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_39(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_41(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_40(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_40(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_42(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_41(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_41(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_43(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_42(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_42(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_44(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_43(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_43(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_45(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_44(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_44(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_46(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_45(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_45(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_47(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_46(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_46(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_48(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_47(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_47(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_49(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_48(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_48(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_50(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_49(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_49(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_51(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_50(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_50(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_52(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_51(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_51(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_53(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_52(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_52(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_54(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_53(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_53(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_55(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_54(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_54(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_56(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_55(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_55(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_57(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_56(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_56(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_58(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_57(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_57(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_59(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_58(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_58(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_60(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_59(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_59(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_61(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_60(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_60(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_62(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_61(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_61(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_63(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_62(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_62(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_64(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_63(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_63(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_65(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_64(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_64(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_66(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_65(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_65(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_67(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_66(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_66(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_68(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_67(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_67(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_69(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_68(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_68(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_70(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_69(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_69(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_71(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_70(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_70(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_72(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_71(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_71(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_73(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_72(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_72(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_74(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_73(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_73(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_75(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_74(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_74(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_76(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_75(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_75(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_77(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_76(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_76(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_78(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_77(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_77(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_79(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_78(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_78(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_80(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_79(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_79(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_81(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_80(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_80(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_82(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_81(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_81(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_83(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_82(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_82(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_84(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_83(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_83(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_85(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_84(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_84(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_86(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_85(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_85(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_87(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_86(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_86(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_88(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_87(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_87(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_89(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_88(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_88(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_90(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_89(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_89(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_91(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_90(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_90(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_92(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_91(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_91(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_93(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_92(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_92(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_94(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_93(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_93(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_95(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_94(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_94(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_96(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_95(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_95(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_97(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_96(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_96(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_98(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_97(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_97(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_99(M, C, D, x, ...) M(C, x) D()                             \
-  WISE_ENUM_IMPL_LOOP_98(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_98(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_100(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_99(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_99(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_101(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_100(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_100(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_102(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_101(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_101(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_103(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_102(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_102(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_104(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_103(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_103(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_105(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_104(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_104(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_106(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_105(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_105(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_107(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_106(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_106(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_108(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_107(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_107(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_109(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_108(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_108(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_110(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_109(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_109(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_111(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_110(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_110(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_112(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_111(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_111(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_113(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_112(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_112(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_114(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_113(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_113(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_115(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_114(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_114(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_116(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_115(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_115(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_117(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_116(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_116(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_118(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_117(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_117(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_119(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_118(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_118(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_120(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_119(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_119(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_121(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_120(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_120(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_122(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_121(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_121(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_123(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_122(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_122(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_124(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_123(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_123(M, C, D, __VA_ARGS__))
 
 #define WISE_ENUM_IMPL_LOOP_125(M, C, D, x, ...) M(C, x) D()                            \
-  WISE_ENUM_IMPL_LOOP_124(M, C, D, __VA_ARGS__)
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_LOOP_124(M, C, D, __VA_ARGS__))
 
