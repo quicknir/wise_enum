@@ -1,6 +1,6 @@
 version: '{build}'
 
-image: Visual Studio 2017
+image: Visual Studio 2019
 
 environment:
   matrix:
@@ -8,6 +8,9 @@ environment:
       CONFIG: Debug
 
     - GENERATOR: "Visual Studio 15 Win64"
+      CONFIG: Release
+
+    - GENERATOR: "Visual Studio 16 2019"
       CONFIG: Release
 
 build_script:
