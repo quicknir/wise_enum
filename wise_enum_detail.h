@@ -95,9 +95,14 @@ WISE_ENUM_CONSTEXPR_14 bool compare(U u1, U u2) {
 } // namespace detail
 } // namespace wise_enum
 
+
+// Needed for expansion of variadic macro arguments in MSVC
+// MSVC expands __VA_ARGS__ after passing it, while gcc expands it before
+#define WISE_ENUM_IMPL_EXPAND(x) x
+
 #define WISE_ENUM_IMPL_NARG(...)                                               \
   WISE_ENUM_IMPL_NARG_(__VA_ARGS__, WISE_ENUM_IMPL_RSEQ_N())
-#define WISE_ENUM_IMPL_NARG_(...) WISE_ENUM_IMPL_ARG_N(__VA_ARGS__)
+#define WISE_ENUM_IMPL_NARG_(...) WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_ARG_N(__VA_ARGS__))
 
 // ARG_N and RSEQ_N defined in wise_enum_generated.h
 
@@ -118,7 +123,8 @@ WISE_ENUM_CONSTEXPR_14 bool compare(U u1, U u2) {
 #define WISE_ENUM_IMPL_IIF_1(t, f) t
 
 #define WISE_ENUM_IMPL_CHECK_N(x, n, ...) n
-#define WISE_ENUM_IMPL_CHECK(...) WISE_ENUM_IMPL_CHECK_N(__VA_ARGS__, 0, )
+#define WISE_ENUM_IMPL_CHECK(...)                                              \
+  WISE_ENUM_IMPL_EXPAND(WISE_ENUM_IMPL_CHECK_N(__VA_ARGS__, 0, ))
 #define WISE_ENUM_IMPL_PROBE(x) x, 1,
 
 #define WISE_ENUM_IMPL_IS_PAREN(x)                                             \
@@ -164,9 +170,11 @@ WISE_ENUM_CONSTEXPR_14 bool compare(U u1, U u2) {
                    WISE_ENUM_IMPL_CAT(WISE_ENUM_IMPL_LOOP_, num_enums),        \
                    __VA_ARGS__)
 
+
 #define WISE_ENUM_IMPL_3(type, name, storage, friendly, num_enums, loop, ...)  \
   type name storage{                                                           \
-      loop(WISE_ENUM_IMPL_ENUM_INIT, _, WISE_ENUM_IMPL_COMMA, __VA_ARGS__)};   \
+      WISE_ENUM_IMPL_EXPAND(loop(WISE_ENUM_IMPL_ENUM_INIT, _,                  \
+                             WISE_ENUM_IMPL_COMMA, __VA_ARGS__))};             \
   WISE_ENUM_IMPL_ADAPT_3(name, friendly, num_enums, loop, __VA_ARGS__)
 
 #define WISE_ENUM_IMPL_ADAPT(name, ...)                                        \
@@ -185,16 +193,16 @@ WISE_ENUM_CONSTEXPR_14 bool compare(U u1, U u2) {
   friendly constexpr std::array<::wise_enum::detail::value_and_name<name>,     \
                                 num_enums>                                     \
   wise_enum_detail_array(::wise_enum::detail::Tag<name>) {                     \
-    return {{loop(WISE_ENUM_IMPL_DESC_PAIR, name, WISE_ENUM_IMPL_COMMA,        \
-                  __VA_ARGS__)}};                                              \
+    return {{WISE_ENUM_IMPL_EXPAND(loop(WISE_ENUM_IMPL_DESC_PAIR, name,        \
+                  WISE_ENUM_IMPL_COMMA, __VA_ARGS__))}};                       \
   }                                                                            \
                                                                                \
   template <class T>                                                           \
   friendly WISE_ENUM_CONSTEXPR_14 ::wise_enum::string_type                     \
   wise_enum_detail_to_string(T e, ::wise_enum::detail::Tag<name>) {            \
     switch (e) {                                                               \
-      loop(WISE_ENUM_IMPL_SWITCH_CASE, name, WISE_ENUM_IMPL_NOTHING,           \
-           __VA_ARGS__)                                                        \
+      WISE_ENUM_IMPL_EXPAND(loop(WISE_ENUM_IMPL_SWITCH_CASE, name,             \
+           WISE_ENUM_IMPL_NOTHING, __VA_ARGS__))                               \
     }                                                                          \
     return {};                                                                 \
   }
