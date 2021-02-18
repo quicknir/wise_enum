@@ -55,7 +55,7 @@ def _print_loop(f, max_enums):
                               prefix, i))
         _print_macro_line(
             f,
-            "  {}{}(M, C, D, __VA_ARGS__)".format(prefix, i - 1),
+            "  WISE_ENUM_IMPL_EXPAND({}{}(M, C, D, __VA_ARGS__))".format(prefix, i - 1),
             terminal=True)
         f.write('\n')
 
