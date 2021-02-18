@@ -4,12 +4,6 @@ image: Visual Studio 2019
 
 environment:
   matrix:
-    - GENERATOR: "Visual Studio 14"
-      CONFIG: Debug
-
-    - GENERATOR: "Visual Studio 15 Win64"
-      CONFIG: Release
-
     - GENERATOR: "Visual Studio 16 2019"
       CONFIG: Release
 
