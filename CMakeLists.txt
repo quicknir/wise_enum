@@ -48,7 +48,7 @@ configure_package_config_file(
 
 install(TARGETS wise_enum
         EXPORT "${targets_export_name}"
-        INCLUDES DESTINATION "${include_install_dir}"
+        INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
         ARCHIVE DESTINATION "${lib_install_dir}")
 
 install(FILES ${interface_hdrs} DESTINATION "${include_install_dir}")
