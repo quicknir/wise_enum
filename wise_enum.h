@@ -53,6 +53,12 @@ constexpr string_type to_string(T t) {
   return wise_enum_detail_to_string(t, detail::Tag<T>{});
 }
 
+// returns if enumerator is valid enumerator value
+template <class T>
+constexpr bool verify_enum(T t) {
+  return wise_enum_detail_verify(t, detail::Tag<T>{});
+}
+
 // Enumerators trait class. Each value is also available as a template variable
 // for C++14 and on
 template <class T>

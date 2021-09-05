@@ -75,5 +75,8 @@ int main() {
   o.reset();
   assert(!o);
 
+  static_assert(wise_enum::verify_enum(my_lib::Color::RED));
+  static_assert(!wise_enum::verify_enum(static_cast<my_lib::Color>(10)));
+
   return 0;
 }
