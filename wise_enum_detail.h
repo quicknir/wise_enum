@@ -154,6 +154,10 @@ WISE_ENUM_CONSTEXPR_14 bool compare(U u1, U u2) {
   case name::WISE_ENUM_IMPL_ONLY_OR_FIRST(x):                                  \
     return WISE_ENUM_IMPL_ENUM_STR(x);
 
+#define WISE_ENUM_IMPL_VERIFY_CASE(name, x)                                    \
+  case name::WISE_ENUM_IMPL_ONLY_OR_FIRST(x):                                  \
+    return true;
+
 #define WISE_ENUM_IMPL_STORAGE_2(x, y) y
 
 #define WISE_ENUM_IMPL_STORAGE(x)                                              \
@@ -205,4 +209,15 @@ WISE_ENUM_CONSTEXPR_14 bool compare(U u1, U u2) {
            WISE_ENUM_IMPL_NOTHING, __VA_ARGS__))                               \
     }                                                                          \
     return {};                                                                 \
+  }                                                                            \
+  template <class T>                                                           \
+  friendly WISE_ENUM_CONSTEXPR_14 bool                                         \
+  wise_enum_detail_verify(T e, ::wise_enum::detail::Tag<name>) {               \
+    switch (e) {                                                               \
+      WISE_ENUM_IMPL_EXPAND(loop(WISE_ENUM_IMPL_VERIFY_CASE, name,             \
+           WISE_ENUM_IMPL_NOTHING, __VA_ARGS__))                               \
+    }                                                                          \
+    return false;                                                              \
   }
+
+  
