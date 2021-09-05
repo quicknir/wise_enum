@@ -78,6 +78,14 @@ enum flub { blub, glub };
 static_assert(!wise_enum::is_wise_enum_v<flub>, "");
 ```
 
+Check if a value defined as valid enumerator:
+
+
+```cpp
+static_assert(wise_enum::verify_enum(my_lib::Color::RED));
+static_assert(!wise_enum::verify_enum(static_cast<my_lib::Color>(10)));
+```
+
 ### Design
 
 It has a few notable design choices.
