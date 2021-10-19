@@ -49,7 +49,7 @@ public:
 
   WISE_ENUM_CONSTEXPR_14 T &&value() && {
     if (m_active)
-      return m_t;
+      return std::move(m_t);
     else
       WISE_ENUM_OPTIONAL_BAD_ACCESS;
   }
